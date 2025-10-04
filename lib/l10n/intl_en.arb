@@ -1,0 +1,10 @@
+{
+  "appTitle": "TraTrouble",
+  "shareTransportFeedback": "Share Transport Feedback",
+  "transportFeedback": "Transport Feedback",
+  "feedbackSubmittedTitle": "Feedback Submitted",
+  "feedbackSubmittedContent": "Thank you for your feedback!",
+  "ok": "OK",
+  "emailLabel": "Email",
+  "pushButtonText": "You have pushed the button this many times:"
+}

@@ -1,0 +1,11 @@
+{
+  "@@locale": "fr",
+  "appTitle": "TraTrouble",
+  "shareTransportFeedback": "Partager les commentaires sur le transport",
+  "transportFeedback": "Commentaires sur le transport",
+  "feedbackSubmittedTitle": "Retour envoyé",
+  "feedbackSubmittedContent": "Merci pour vos commentaires !",
+  "ok": "OK",
+  "emailLabel": "E-mail",
+  "pushButtonText": "Vous avez appuyé sur le bouton autant de fois :"
+}

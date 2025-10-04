@@ -1,0 +1,11 @@
+{
+  "@@locale": "ja",
+  "appTitle": "トラトラブル",
+  "shareTransportFeedback": "輸送フィードバックを共有する",
+  "transportFeedback": "輸送フィードバック",
+  "feedbackSubmittedTitle": "フィードバックが送信されました",
+  "feedbackSubmittedContent": "フィードバックありがとうございます！",
+  "ok": "OK",
+  "emailLabel": "メール",
+  "pushButtonText": "ボタンを押した回数："
+}
