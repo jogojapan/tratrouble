@@ -109,16 +109,6 @@ class S {
     return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
   }
 
-  /// `You have pushed the button this many times:`
-  String get pushButtonText {
-    return Intl.message(
-      'You have pushed the button this many times:',
-      name: 'pushButtonText',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Nearby`
   String get nearby {
     return Intl.message('Nearby', name: 'nearby', desc: '', args: []);

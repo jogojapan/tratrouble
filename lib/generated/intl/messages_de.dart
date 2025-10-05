@@ -44,9 +44,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "nearby": MessageLookupByLibrary.simpleMessage("In der Nähe"),
     "now": MessageLookupByLibrary.simpleMessage("jetzt"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
-    "pushButtonText": MessageLookupByLibrary.simpleMessage(
-      "Sie haben den Knopf so oft gedrückt:",
-    ),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "Teilen Sie Transportfeedback",
     ),

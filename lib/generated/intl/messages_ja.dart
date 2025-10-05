@@ -44,7 +44,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "nearby": MessageLookupByLibrary.simpleMessage("近く"),
     "now": MessageLookupByLibrary.simpleMessage("今"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
-    "pushButtonText": MessageLookupByLibrary.simpleMessage("ボタンを押した回数："),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "輸送フィードバックを共有する",
     ),
