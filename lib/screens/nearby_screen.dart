@@ -146,57 +146,62 @@ class _NearbyScreenState extends State<NearbyScreen> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.25,
-            width: double.infinity,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: _distanceController,
-                keyboardType: TextInputType.number,
-                style: const TextStyle(fontSize: 24),
-                decoration: InputDecoration(
-                  labelText: 'Distance (meters)',
-                  labelStyle: const TextStyle(fontSize: 20),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                onSubmitted: (value) {
-                  final parsed = int.tryParse(value);
-                  if (parsed != null && parsed > 0) {
-                    setState(() {
-                      _distance = parsed;
-                    });
-                    _fetchNearbyStops();
-                  } else {
-                    _distanceController.text = _distance.toString();
-                  }
-                },
-              ),
-            ),
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: _decrementDistance,
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  width: double.infinity,
+                  child: TextField(
+                    controller: _distanceController,
+                    keyboardType: TextInputType.number,
+                    style: const TextStyle(fontSize: 24),
+                    decoration: InputDecoration(
+                      labelText: 'Distance (meters)',
+                      labelStyle: const TextStyle(fontSize: 20),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
-                    child: const Icon(Icons.remove, size: 32),
+                    onSubmitted: (value) {
+                      final parsed = int.tryParse(value);
+                      if (parsed != null && parsed > 0) {
+                        setState(() {
+                          _distance = parsed;
+                        });
+                        _fetchNearbyStops();
+                      } else {
+                        _distanceController.text = _distance.toString();
+                      }
+                    },
                   ),
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: _incrementDistance,
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                    ),
-                    child: const Icon(Icons.add, size: 32),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: _decrementDistance,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ),
+                          child: const Icon(Icons.remove, size: 32),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: _incrementDistance,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ),
+                          child: const Icon(Icons.add, size: 32),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
