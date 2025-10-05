@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "locationServicesDisabled": MessageLookupByLibrary.simpleMessage(
       "Les services de localisation sont désactivés.",
     ),
+    "min": MessageLookupByLibrary.simpleMessage("min"),
     "nearby": MessageLookupByLibrary.simpleMessage("À proximité"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "pushButtonText": MessageLookupByLibrary.simpleMessage(
@@ -48,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "Partager les commentaires sur le transport",
     ),
+    "to": MessageLookupByLibrary.simpleMessage("à"),
     "transportFeedback": MessageLookupByLibrary.simpleMessage(
       "Commentaires sur le transport",
     ),

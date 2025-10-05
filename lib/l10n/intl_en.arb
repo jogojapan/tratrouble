@@ -11,5 +11,7 @@
   "locationServicesDisabled": "Location services are disabled.",
   "locationPermissionDenied": "Location permission denied.",
   "locationPermissionDeniedForever": "Location permission denied forever.",
-  "departures": "Departures"
+  "departures": "Departures",
+  "to": "to",
+  "min": "min"
 }

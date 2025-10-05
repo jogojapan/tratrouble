@@ -12,5 +12,7 @@
   "locationServicesDisabled": "Ortungsdienste sind deaktiviert.",
   "locationPermissionDenied": "Ortungsberechtigung verweigert.",
   "locationPermissionDeniedForever": "Ortungsberechtigung dauerhaft verweigert.",
-  "departures": "Abfahrten"
+  "departures": "Abfahrten",
+  "to": "bis",
+  "min": "Min"
 }

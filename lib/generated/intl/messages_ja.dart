@@ -40,12 +40,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "locationServicesDisabled": MessageLookupByLibrary.simpleMessage(
       "位置情報サービスが無効になっています。",
     ),
+    "min": MessageLookupByLibrary.simpleMessage("分"),
     "nearby": MessageLookupByLibrary.simpleMessage("近く"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "pushButtonText": MessageLookupByLibrary.simpleMessage("ボタンを押した回数："),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "輸送フィードバックを共有する",
     ),
+    "to": MessageLookupByLibrary.simpleMessage("行き先"),
     "transportFeedback": MessageLookupByLibrary.simpleMessage("輸送フィードバック"),
   };
 }

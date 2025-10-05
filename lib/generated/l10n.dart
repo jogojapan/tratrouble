@@ -158,6 +158,16 @@ class S {
   String get departures {
     return Intl.message('Departures', name: 'departures', desc: '', args: []);
   }
+
+  /// `to`
+  String get to {
+    return Intl.message('to', name: 'to', desc: '', args: []);
+  }
+
+  /// `min`
+  String get min {
+    return Intl.message('min', name: 'min', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

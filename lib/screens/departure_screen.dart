@@ -150,10 +150,37 @@ class _DepartureScreenState extends State<DepartureScreen> {
                       final departure = _departures![index];
                       return ListTile(
                         title: Text(
-                          '${_extractTime(departure.plannedWhen)} / ${_extractTime(departure.when)}',
+                          '${departure.line.name} ${S.of(context).to} ${departure.direction}',
+                          style: const TextStyle(fontSize: 20),
                         ),
-                        subtitle: Text(
-                          '${departure.line.name} to ${departure.direction}',
+                        subtitle: Row(
+                          children: [
+                            Text(_extractTime(departure.plannedWhen)),
+                            const SizedBox(width: 8),
+                            Builder(
+                              builder: (context) {
+                                final planned = DateTime.tryParse(
+                                  departure.plannedWhen,
+                                );
+                                final actual = DateTime.tryParse(
+                                  departure.when,
+                                );
+                                if (planned == null || actual == null)
+                                  return const SizedBox.shrink();
+                                final diff = actual
+                                    .difference(planned)
+                                    .inMinutes;
+                                if (diff == 0) return const SizedBox.shrink();
+                                final sign = diff > 0 ? '+' : '-';
+                                return Text(
+                                  '$sign${diff.abs()} ${S.of(context).min}',
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
                         ),
                       );
                     },

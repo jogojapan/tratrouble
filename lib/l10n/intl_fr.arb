@@ -12,5 +12,7 @@
   "locationServicesDisabled": "Les services de localisation sont désactivés.",
   "locationPermissionDenied": "Permission de localisation refusée.",
   "locationPermissionDeniedForever": "Permission de localisation refusée définitivement.",
-  "departures": "Départs"
+  "departures": "Départs",
+  "to": "à",
+  "min": "min"
 }
