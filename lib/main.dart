@@ -68,14 +68,6 @@ class TraTroubleHome extends StatefulWidget {
 }
 
 class _TraTroubleHomeState extends State<TraTroubleHome> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter += 42;
-    });
-  }
-
   void _navigateToFeedback() {
     Navigator.of(
       context,
@@ -164,26 +156,7 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
                   ],
                 ),
               ),
-              Expanded(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(S.of(context).pushButtonText),
-                      Text(
-                        '$_counter',
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ],
-          ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: _incrementCounter,
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
           ),
         );
       },
