@@ -165,8 +165,9 @@ class _DepartureScreenState extends State<DepartureScreen> {
                                 final actual = DateTime.tryParse(
                                   departure.when,
                                 );
-                                if (planned == null || actual == null)
+                                if (planned == null || actual == null) {
                                   return const SizedBox.shrink();
+                                }
                                 final diff = actual
                                     .difference(planned)
                                     .inMinutes;
