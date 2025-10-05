@@ -27,10 +27,16 @@ class TraTroubleApp extends StatelessWidget {
           return MaterialApp(
             title: 'TraTrouble', // S.of(context).appTitle,
             theme: ThemeData.light().copyWith(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: Colors.lightBlue,
+                brightness: Brightness.light,
+              ),
             ),
             darkTheme: ThemeData.dark().copyWith(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: Colors.lightBlue,
+                brightness: Brightness.dark,
+              ),
             ),
             themeMode: themeProvider.themeMode,
             locale: localeProvider.locale,
@@ -90,46 +96,43 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(S.of(context).appTitle),
-        actions: [
-          IconButton(
-            icon: Icon(
-              themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode,
-            ),
-            onPressed: () {
-              themeProvider.toggleTheme();
-            },
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            title: Text(S.of(context).appTitle),
+            actions: [
+              IconButton(
+                icon: Icon(
+                  themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                ),
+                onPressed: () {
+                  themeProvider.toggleTheme();
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: _navigateToSettings,
+              ),
+            ],
           ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: _navigateToSettings,
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2,
-            width: double.infinity,
-            child: Consumer<ThemeProvider>(
-              builder: (context, themeProvider, child) {
-                final isDark = themeProvider.isDarkMode;
-                return Column(
+          body: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+                width: double.infinity,
+                child: Column(
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        backgroundColor: isDark
+                        backgroundColor: themeProvider.isDarkMode
                             ? Colors.blue[900]
                             : Colors.grey[300],
-                        foregroundColor: isDark
+                        foregroundColor: themeProvider.isDarkMode
                             ? Colors.grey[300]
                             : Colors.blue[900],
                       ),
@@ -145,10 +148,10 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        backgroundColor: isDark
+                        backgroundColor: themeProvider.isDarkMode
                             ? Colors.blue[900]
                             : Colors.grey[300],
-                        foregroundColor: isDark
+                        foregroundColor: themeProvider.isDarkMode
                             ? Colors.grey[300]
                             : Colors.blue[900],
                       ),
@@ -159,31 +162,31 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
                       ),
                     ),
                   ],
-                );
-              },
-            ),
-          ),
-          Expanded(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(S.of(context).pushButtonText),
-                  Text(
-                    '$_counter',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                ],
+                ),
               ),
-            ),
+              Expanded(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(S.of(context).pushButtonText),
+                      Text(
+                        '$_counter',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        );
+      },
     );
   }
 }

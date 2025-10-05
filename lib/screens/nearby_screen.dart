@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:provider/provider.dart';
 import '../generated/l10n.dart';
-import '../providers/theme_provider.dart';
 
 class NearbyScreen extends StatefulWidget {
   const NearbyScreen({super.key});
@@ -80,7 +78,6 @@ class _NearbyScreenState extends State<NearbyScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final themeProvider = Provider.of<ThemeProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -104,19 +101,18 @@ class _NearbyScreenState extends State<NearbyScreen> {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.2,
                   decoration: BoxDecoration(
-                    color: themeProvider.isDarkMode
-                        ? Colors.grey[900]
-                        : theme.colorScheme.surface,
+                    color: theme.colorScheme.surface,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.lightBlue, width: 2),
+                    border: Border.all(
+                      color: theme.colorScheme.primary,
+                      width: 2,
+                    ),
                   ),
                   child: Center(
                     child: Text(
                       'Lat: ${_currentPosition!.latitude}\nLng: ${_currentPosition!.longitude}',
                       style: theme.textTheme.bodyLarge?.copyWith(
-                        color: themeProvider.isDarkMode
-                            ? theme.colorScheme.onPrimary
-                            : theme.colorScheme.onSurface,
+                        color: theme.colorScheme.onSurface,
                       ),
                       textAlign: TextAlign.center,
                     ),
