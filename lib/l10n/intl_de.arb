@@ -11,5 +11,6 @@
   "nearby": "In der Nähe",
   "locationServicesDisabled": "Ortungsdienste sind deaktiviert.",
   "locationPermissionDenied": "Ortungsberechtigung verweigert.",
-  "locationPermissionDeniedForever": "Ortungsberechtigung dauerhaft verweigert."
+  "locationPermissionDeniedForever": "Ortungsberechtigung dauerhaft verweigert.",
+  "departures": "Abfahrten"
 }

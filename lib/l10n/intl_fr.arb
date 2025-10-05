@@ -11,5 +11,6 @@
   "nearby": "À proximité",
   "locationServicesDisabled": "Les services de localisation sont désactivés.",
   "locationPermissionDenied": "Permission de localisation refusée.",
-  "locationPermissionDeniedForever": "Permission de localisation refusée définitivement."
+  "locationPermissionDeniedForever": "Permission de localisation refusée définitivement.",
+  "departures": "Départs"
 }

@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../generated/l10n.dart';
 import '../v6_vbb/tra_stop.dart';
+import 'departure_screen.dart';
 
 class NearbyScreen extends StatefulWidget {
   const NearbyScreen({super.key});
@@ -207,7 +208,7 @@ class _NearbyScreenState extends State<NearbyScreen> {
               ],
             ),
           ),
-          Expanded(
+          Flexible(
             child: _errorMessage != null
                 ? Center(child: Text(_errorMessage!))
                 : _nearbyStops == null
@@ -223,6 +224,14 @@ class _NearbyScreenState extends State<NearbyScreen> {
                       return ListTile(
                         title: Text(stop.name),
                         subtitle: Text('${stop.distance} m'),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  DepartureScreen(stopId: stop.id),
+                            ),
+                          );
+                        },
                       );
                     },
                   ),
