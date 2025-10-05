@@ -6,7 +6,7 @@
   "feedbackSubmittedContent": "Thank you for your feedback!",
   "ok": "OK",
   "emailLabel": "Email",
-  "nearby": "Nearby",
+  "departNearby": "Board a bus nearby",
   "locationServicesDisabled": "Location services are disabled.",
   "locationPermissionDenied": "Location permission denied.",
   "locationPermissionDeniedForever": "Location permission denied forever.",

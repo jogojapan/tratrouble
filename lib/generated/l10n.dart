@@ -109,9 +109,14 @@ class S {
     return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
   }
 
-  /// `Nearby`
-  String get nearby {
-    return Intl.message('Nearby', name: 'nearby', desc: '', args: []);
+  /// `Board a bus nearby`
+  String get departNearby {
+    return Intl.message(
+      'Board a bus nearby',
+      name: 'departNearby',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Location services are disabled.`

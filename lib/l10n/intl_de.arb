@@ -7,7 +7,7 @@
   "feedbackSubmittedContent": "Vielen Dank für Ihr Feedback!",
   "ok": "OK",
   "emailLabel": "E-Mail",
-  "nearby": "In der Nähe",
+  "departNearby": "In der Nähe einsteigen",
   "locationServicesDisabled": "Ortungsdienste sind deaktiviert.",
   "locationPermissionDenied": "Ortungsberechtigung verweigert.",
   "locationPermissionDeniedForever": "Ortungsberechtigung dauerhaft verweigert.",

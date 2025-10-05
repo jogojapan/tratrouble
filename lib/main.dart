@@ -3,7 +3,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'providers/theme_provider.dart';
 import 'providers/locale_provider.dart';
-import 'screens/feedback_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/nearby_screen.dart';
 import 'generated/l10n.dart';
@@ -68,12 +67,6 @@ class TraTroubleHome extends StatefulWidget {
 }
 
 class _TraTroubleHomeState extends State<TraTroubleHome> {
-  void _navigateToFeedback() {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => const FeedbackScreen()));
-  }
-
   void _navigateToSettings() {
     Navigator.of(
       context,
@@ -116,41 +109,22 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        backgroundColor: themeProvider.isDarkMode
-                            ? Colors.blue[900]
-                            : Colors.grey[300],
-                        foregroundColor: themeProvider.isDarkMode
-                            ? Colors.grey[300]
-                            : Colors.blue[900],
-                      ),
-                      onPressed: _navigateToFeedback,
-                      child: Text(
-                        S.of(context).shareTransportFeedback,
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                    ),
                     const SizedBox(height: 8),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                    Expanded(
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          onPressed: _navigateToNearby,
+                          child: Text(
+                            S.of(context).departNearby,
+                            style: const TextStyle(fontSize: 20),
+                          ),
                         ),
-                        backgroundColor: themeProvider.isDarkMode
-                            ? Colors.blue[900]
-                            : Colors.grey[300],
-                        foregroundColor: themeProvider.isDarkMode
-                            ? Colors.grey[300]
-                            : Colors.blue[900],
-                      ),
-                      onPressed: _navigateToNearby,
-                      child: Text(
-                        S.of(context).nearby,
-                        style: const TextStyle(fontSize: 20),
                       ),
                     ),
                   ],

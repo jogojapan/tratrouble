@@ -7,7 +7,7 @@
   "feedbackSubmittedContent": "Merci pour vos commentaires !",
   "ok": "OK",
   "emailLabel": "E-mail",
-  "nearby": "À proximité",
+  "departNearby": "Partir à proximité",
   "locationServicesDisabled": "Les services de localisation sont désactivés.",
   "locationPermissionDenied": "Permission de localisation refusée.",
   "locationPermissionDeniedForever": "Permission de localisation refusée définitivement.",
