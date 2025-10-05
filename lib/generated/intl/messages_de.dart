@@ -30,6 +30,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "feedbackSubmittedTitle": MessageLookupByLibrary.simpleMessage(
       "Feedback gesendet",
     ),
+    "locationPermissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Ortungsberechtigung verweigert.",
+    ),
+    "locationPermissionDeniedForever": MessageLookupByLibrary.simpleMessage(
+      "Ortungsberechtigung dauerhaft verweigert.",
+    ),
+    "locationServicesDisabled": MessageLookupByLibrary.simpleMessage(
+      "Ortungsdienste sind deaktiviert.",
+    ),
+    "nearby": MessageLookupByLibrary.simpleMessage("In der Nähe"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "pushButtonText": MessageLookupByLibrary.simpleMessage(
       "Sie haben den Knopf so oft gedrückt:",

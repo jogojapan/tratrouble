@@ -7,5 +7,9 @@
   "feedbackSubmittedContent": "Merci pour vos commentaires !",
   "ok": "OK",
   "emailLabel": "E-mail",
-  "pushButtonText": "Vous avez appuyé sur le bouton autant de fois :"
+  "pushButtonText": "Vous avez appuyé sur le bouton autant de fois :",
+  "nearby": "À proximité",
+  "locationServicesDisabled": "Les services de localisation sont désactivés.",
+  "locationPermissionDenied": "Permission de localisation refusée.",
+  "locationPermissionDeniedForever": "Permission de localisation refusée définitivement."
 }

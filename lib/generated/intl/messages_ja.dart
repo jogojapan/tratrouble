@@ -30,6 +30,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "feedbackSubmittedTitle": MessageLookupByLibrary.simpleMessage(
       "フィードバックが送信されました",
     ),
+    "locationPermissionDenied": MessageLookupByLibrary.simpleMessage(
+      "位置情報の許可が拒否されました。",
+    ),
+    "locationPermissionDeniedForever": MessageLookupByLibrary.simpleMessage(
+      "位置情報の許可が永久に拒否されました。",
+    ),
+    "locationServicesDisabled": MessageLookupByLibrary.simpleMessage(
+      "位置情報サービスが無効になっています。",
+    ),
+    "nearby": MessageLookupByLibrary.simpleMessage("近く"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "pushButtonText": MessageLookupByLibrary.simpleMessage("ボタンを押した回数："),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(

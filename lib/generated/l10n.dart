@@ -118,6 +118,41 @@ class S {
       args: [],
     );
   }
+
+  /// `Nearby`
+  String get nearby {
+    return Intl.message('Nearby', name: 'nearby', desc: '', args: []);
+  }
+
+  /// `Location services are disabled.`
+  String get locationServicesDisabled {
+    return Intl.message(
+      'Location services are disabled.',
+      name: 'locationServicesDisabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location permission denied.`
+  String get locationPermissionDenied {
+    return Intl.message(
+      'Location permission denied.',
+      name: 'locationPermissionDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location permission denied forever.`
+  String get locationPermissionDeniedForever {
+    return Intl.message(
+      'Location permission denied forever.',
+      name: 'locationPermissionDeniedForever',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

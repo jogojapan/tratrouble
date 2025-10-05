@@ -7,5 +7,9 @@
   "feedbackSubmittedContent": "フィードバックありがとうございます！",
   "ok": "OK",
   "emailLabel": "メール",
-  "pushButtonText": "ボタンを押した回数："
+  "pushButtonText": "ボタンを押した回数：",
+  "nearby": "近く",
+  "locationServicesDisabled": "位置情報サービスが無効になっています。",
+  "locationPermissionDenied": "位置情報の許可が拒否されました。",
+  "locationPermissionDeniedForever": "位置情報の許可が永久に拒否されました。"
 }

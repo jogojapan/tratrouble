@@ -5,6 +5,7 @@ import 'providers/theme_provider.dart';
 import 'providers/locale_provider.dart';
 import 'screens/feedback_screen.dart';
 import 'screens/settings_screen.dart';
+import 'screens/nearby_screen.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -81,6 +82,12 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
     ).push(MaterialPageRoute(builder: (context) => const SettingsScreen()));
   }
 
+  void _navigateToNearby() {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (context) => const NearbyScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
@@ -112,23 +119,46 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
             child: Consumer<ThemeProvider>(
               builder: (context, themeProvider, child) {
                 final isDark = themeProvider.isDarkMode;
-                return ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                return Column(
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        backgroundColor: isDark
+                            ? Colors.blue[900]
+                            : Colors.grey[300],
+                        foregroundColor: isDark
+                            ? Colors.grey[300]
+                            : Colors.blue[900],
+                      ),
+                      onPressed: _navigateToFeedback,
+                      child: Text(
+                        S.of(context).shareTransportFeedback,
+                        style: const TextStyle(fontSize: 20),
+                      ),
                     ),
-                    backgroundColor: isDark
-                        ? Colors.blue[900]
-                        : Colors.grey[300],
-                    foregroundColor: isDark
-                        ? Colors.grey[300]
-                        : Colors.blue[900],
-                  ),
-                  onPressed: _navigateToFeedback,
-                  child: Text(
-                    S.of(context).shareTransportFeedback,
-                    style: const TextStyle(fontSize: 20),
-                  ),
+                    const SizedBox(height: 8),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        backgroundColor: isDark
+                            ? Colors.blue[900]
+                            : Colors.grey[300],
+                        foregroundColor: isDark
+                            ? Colors.grey[300]
+                            : Colors.blue[900],
+                      ),
+                      onPressed: _navigateToNearby,
+                      child: Text(
+                        S.of(context).nearby,
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ],
                 );
               },
             ),
