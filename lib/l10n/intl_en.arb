@@ -13,5 +13,6 @@
   "locationPermissionDeniedForever": "Location permission denied forever.",
   "departures": "Departures",
   "to": "to",
-  "min": "min"
+  "min": "min",
+  "now": "now"
 }

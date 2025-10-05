@@ -14,5 +14,6 @@
   "locationPermissionDeniedForever": "Ortungsberechtigung dauerhaft verweigert.",
   "departures": "Abfahrten",
   "to": "bis",
-  "min": "Min"
+  "min": "Min",
+  "now": "jetzt"
 }

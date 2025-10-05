@@ -168,6 +168,11 @@ class S {
   String get min {
     return Intl.message('min', name: 'min', desc: '', args: []);
   }
+
+  /// `now`
+  String get now {
+    return Intl.message('now', name: 'now', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

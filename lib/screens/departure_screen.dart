@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../generated/l10n.dart';
 import '../v6_vbb/departure.dart';
+import '../widgets/time_window_selector.dart';
 
 class DepartureScreen extends StatefulWidget {
   final String stopId;
@@ -35,13 +36,16 @@ class _DepartureScreenState extends State<DepartureScreen> {
   }
 
   Future<void> _fetchDepartures() async {
+    // Calculate start of time window
+    final startMinute = 60 + _minutesAgo - (_duration ~/ 2);
+
     String whenParam;
-    if (_minutesAgo == 0) {
+    if (startMinute == 60) {
       whenParam = 'now';
-    } else if (_minutesAgo > 0) {
-      whenParam = '$_minutesAgo minutes ago';
+    } else if (startMinute < 60) {
+      whenParam = '${60 - startMinute} minutes ago';
     } else {
-      whenParam = 'in ${-_minutesAgo} minutes';
+      whenParam = 'in ${startMinute - 60} minutes';
     }
 
     final url = Uri.parse(
@@ -71,36 +75,6 @@ class _DepartureScreenState extends State<DepartureScreen> {
     }
   }
 
-  void _incrementDuration() {
-    setState(() {
-      _duration += 5;
-    });
-    _fetchDepartures();
-  }
-
-  void _decrementDuration() {
-    setState(() {
-      _duration = (_duration - 5).clamp(0, 120);
-    });
-    _fetchDepartures();
-  }
-
-  void _incrementMinutesAgo() {
-    setState(() {
-      _minutesAgo += 1;
-      _minutesAgoController.text = _minutesAgo.toString();
-    });
-    _fetchDepartures();
-  }
-
-  void _decrementMinutesAgo() {
-    setState(() {
-      _minutesAgo -= 1;
-      _minutesAgoController.text = _minutesAgo.toString();
-    });
-    _fetchDepartures();
-  }
-
   String _extractTime(String isoDateTime) {
     try {
       final dateTime = DateTime.parse(isoDateTime);
@@ -126,94 +100,23 @@ class _DepartureScreenState extends State<DepartureScreen> {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.12,
-                  width: double.infinity,
-                  child: TextField(
-                    controller: _minutesAgoController,
-                    readOnly: true,
-                    style: const TextStyle(fontSize: 24),
-                    decoration: InputDecoration(
-                      labelText: 'Minutes Ago',
-                      labelStyle: const TextStyle(fontSize: 20),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.07,
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: _decrementMinutesAgo,
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                          ),
-                          child: const Icon(Icons.remove, size: 32),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: _incrementMinutesAgo,
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                          ),
-                          child: const Icon(Icons.add, size: 32),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 16),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.12,
-                  width: double.infinity,
-                  child: TextField(
-                    readOnly: true,
-                    controller: TextEditingController(
-                      text: _duration.toString(),
-                    ),
-                    style: const TextStyle(fontSize: 24),
-                    decoration: InputDecoration(
-                      labelText: 'Time window (minutes)',
-                      labelStyle: const TextStyle(fontSize: 20),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.07,
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: _decrementDuration,
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                          ),
-                          child: const Icon(Icons.remove, size: 32),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: _incrementDuration,
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                          ),
-                          child: const Icon(Icons.add, size: 32),
-                        ),
-                      ),
-                    ],
-                  ),
+                TimeWindowSelector(
+                  durationMinutes: _duration,
+                  offsetMinutes: _minutesAgo,
+                  onDurationChanged: (newDuration) {
+                    setState(() {
+                      _duration = newDuration;
+                      // Keep offset unchanged to keep left end fixed
+                    });
+                    _fetchDepartures();
+                  },
+                  onOffsetChanged: (newOffset) {
+                    setState(() {
+                      _minutesAgo = newOffset;
+                      _minutesAgoController.text = newOffset.toString();
+                    });
+                    _fetchDepartures();
+                  },
                 ),
               ],
             ),

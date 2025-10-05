@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "min": MessageLookupByLibrary.simpleMessage("min"),
     "nearby": MessageLookupByLibrary.simpleMessage("À proximité"),
+    "now": MessageLookupByLibrary.simpleMessage("maintenant"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "pushButtonText": MessageLookupByLibrary.simpleMessage(
       "Vous avez appuyé sur le bouton autant de fois :",

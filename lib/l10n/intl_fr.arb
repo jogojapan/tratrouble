@@ -14,5 +14,6 @@
   "locationPermissionDeniedForever": "Permission de localisation refusée définitivement.",
   "departures": "Départs",
   "to": "à",
-  "min": "min"
+  "min": "min",
+  "now": "maintenant"
 }

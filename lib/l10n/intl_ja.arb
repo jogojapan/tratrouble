@@ -14,5 +14,6 @@
   "locationPermissionDeniedForever": "位置情報の許可が永久に拒否されました。",
   "departures": "出発",
   "to": "行き先",
-  "min": "分"
+  "min": "分",
+  "now": "今"
 }
