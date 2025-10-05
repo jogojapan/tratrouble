@@ -17,6 +17,10 @@ class _DepartureScreenState extends State<DepartureScreen> {
   List<Departure>? _departures;
   String? _errorMessage;
   int _duration = 15;
+  int _minutesAgo = 0;
+  final TextEditingController _minutesAgoController = TextEditingController(
+    text: '0',
+  );
 
   @override
   void initState() {
@@ -24,9 +28,24 @@ class _DepartureScreenState extends State<DepartureScreen> {
     _fetchDepartures();
   }
 
+  @override
+  void dispose() {
+    _minutesAgoController.dispose();
+    super.dispose();
+  }
+
   Future<void> _fetchDepartures() async {
+    String whenParam;
+    if (_minutesAgo == 0) {
+      whenParam = 'now';
+    } else if (_minutesAgo > 0) {
+      whenParam = '$_minutesAgo minutes ago';
+    } else {
+      whenParam = 'in ${-_minutesAgo} minutes';
+    }
+
     final url = Uri.parse(
-      'https://v6.vbb.transport.rest/stops/${widget.stopId}/departures?duration=$_duration',
+      'https://v6.vbb.transport.rest/stops/${widget.stopId}/departures?duration=$_duration&when=$whenParam',
     );
 
     try {
@@ -66,6 +85,22 @@ class _DepartureScreenState extends State<DepartureScreen> {
     _fetchDepartures();
   }
 
+  void _incrementMinutesAgo() {
+    setState(() {
+      _minutesAgo += 1;
+      _minutesAgoController.text = _minutesAgo.toString();
+    });
+    _fetchDepartures();
+  }
+
+  void _decrementMinutesAgo() {
+    setState(() {
+      _minutesAgo -= 1;
+      _minutesAgoController.text = _minutesAgo.toString();
+    });
+    _fetchDepartures();
+  }
+
   String _extractTime(String isoDateTime) {
     try {
       final dateTime = DateTime.parse(isoDateTime);
@@ -91,6 +126,50 @@ class _DepartureScreenState extends State<DepartureScreen> {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  width: double.infinity,
+                  child: TextField(
+                    controller: _minutesAgoController,
+                    readOnly: true,
+                    style: const TextStyle(fontSize: 24),
+                    decoration: InputDecoration(
+                      labelText: 'Minutes Ago',
+                      labelStyle: const TextStyle(fontSize: 20),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: _decrementMinutesAgo,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ),
+                          child: const Icon(Icons.remove, size: 32),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: _incrementMinutesAgo,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ),
+                          child: const Icon(Icons.add, size: 32),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.12,
                   width: double.infinity,
