@@ -6,12 +6,15 @@
   "feedbackSubmittedContent": "Thank you for your feedback!",
   "ok": "OK",
   "emailLabel": "Email",
-  "departNearby": "Board a bus nearby",
+  "pushButtonText": "You have pushed the button this many times:",
+  "nearby": "Nearby",
   "locationServicesDisabled": "Location services are disabled.",
   "locationPermissionDenied": "Location permission denied.",
   "locationPermissionDeniedForever": "Location permission denied forever.",
   "departures": "Departures",
   "to": "to",
   "min": "min",
-  "now": "now"
+  "now": "now",
+  "departNearby": "Board a bus nearby",
+  "onTheBus": "I am on the bus"
 }

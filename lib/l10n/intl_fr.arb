@@ -7,12 +7,15 @@
   "feedbackSubmittedContent": "Merci pour vos commentaires !",
   "ok": "OK",
   "emailLabel": "E-mail",
-  "departNearby": "Partir à proximité",
+  "pushButtonText": "Vous avez appuyé sur le bouton autant de fois :",
+  "nearby": "À proximité",
   "locationServicesDisabled": "Les services de localisation sont désactivés.",
   "locationPermissionDenied": "Permission de localisation refusée.",
   "locationPermissionDeniedForever": "Permission de localisation refusée définitivement.",
   "departures": "Départs",
   "to": "à",
   "min": "min",
-  "now": "maintenant"
+  "now": "maintenant",
+  "departNearby": "Monter dans un bus à proximité",
+  "onTheBus": "Je suis dans le bus"
 }

@@ -42,8 +42,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Location services are disabled.",
     ),
     "min": MessageLookupByLibrary.simpleMessage("min"),
+    "nearby": MessageLookupByLibrary.simpleMessage("Nearby"),
     "now": MessageLookupByLibrary.simpleMessage("now"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
+    "onTheBus": MessageLookupByLibrary.simpleMessage("I am on the bus."),
+    "pushButtonText": MessageLookupByLibrary.simpleMessage(
+      "You have pushed the button this many times:",
+    ),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "Share Transport Feedback",
     ),

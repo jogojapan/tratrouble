@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("トラトラブル"),
-    "departNearby": MessageLookupByLibrary.simpleMessage("近くで乗車"),
+    "departNearby": MessageLookupByLibrary.simpleMessage("近くのバスに乗る"),
     "departures": MessageLookupByLibrary.simpleMessage("出発"),
     "emailLabel": MessageLookupByLibrary.simpleMessage("メール"),
     "feedbackSubmittedContent": MessageLookupByLibrary.simpleMessage(
@@ -42,8 +42,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "位置情報サービスが無効になっています。",
     ),
     "min": MessageLookupByLibrary.simpleMessage("分"),
+    "nearby": MessageLookupByLibrary.simpleMessage("近く"),
     "now": MessageLookupByLibrary.simpleMessage("今"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
+    "onTheBus": MessageLookupByLibrary.simpleMessage("私はバスに乗っています。"),
+    "pushButtonText": MessageLookupByLibrary.simpleMessage("ボタンを押した回数："),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "輸送フィードバックを共有する",
     ),

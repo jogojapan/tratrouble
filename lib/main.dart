@@ -5,6 +5,7 @@ import 'providers/theme_provider.dart';
 import 'providers/locale_provider.dart';
 import 'screens/settings_screen.dart';
 import 'screens/nearby_screen.dart';
+import 'screens/on_bus_screen.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -79,6 +80,12 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
     ).push(MaterialPageRoute(builder: (context) => const NearbyScreen()));
   }
 
+  void _navigateToOnBus() {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (context) => const OnBusScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(
@@ -122,6 +129,24 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
                           onPressed: _navigateToNearby,
                           child: Text(
                             S.of(context).departNearby,
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Expanded(
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          onPressed: _navigateToOnBus,
+                          child: Text(
+                            S.of(context).onTheBus,
                             style: const TextStyle(fontSize: 20),
                           ),
                         ),

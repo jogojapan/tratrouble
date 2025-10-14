@@ -7,12 +7,15 @@
   "feedbackSubmittedContent": "Vielen Dank für Ihr Feedback!",
   "ok": "OK",
   "emailLabel": "E-Mail",
-  "departNearby": "In der Nähe einsteigen",
+  "pushButtonText": "Sie haben den Knopf so oft gedrückt:",
+  "nearby": "In der Nähe",
   "locationServicesDisabled": "Ortungsdienste sind deaktiviert.",
   "locationPermissionDenied": "Ortungsberechtigung verweigert.",
   "locationPermissionDeniedForever": "Ortungsberechtigung dauerhaft verweigert.",
   "departures": "Abfahrten",
   "to": "bis",
   "min": "Min",
-  "now": "jetzt"
+  "now": "jetzt",
+  "departNearby": "Steigen Sie in einen Bus in der Nähe ein",
+  "onTheBus": "Ich bin im Bus"
 }

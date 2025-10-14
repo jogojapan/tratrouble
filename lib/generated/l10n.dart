@@ -109,14 +109,19 @@ class S {
     return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
   }
 
-  /// `Board a bus nearby`
-  String get departNearby {
+  /// `You have pushed the button this many times:`
+  String get pushButtonText {
     return Intl.message(
-      'Board a bus nearby',
-      name: 'departNearby',
+      'You have pushed the button this many times:',
+      name: 'pushButtonText',
       desc: '',
       args: [],
     );
+  }
+
+  /// `Nearby`
+  String get nearby {
+    return Intl.message('Nearby', name: 'nearby', desc: '', args: []);
   }
 
   /// `Location services are disabled.`
@@ -167,6 +172,26 @@ class S {
   /// `now`
   String get now {
     return Intl.message('now', name: 'now', desc: '', args: []);
+  }
+
+  /// `Board a bus nearby`
+  String get departNearby {
+    return Intl.message(
+      'Board a bus nearby',
+      name: 'departNearby',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I am on the bus.`
+  String get onTheBus {
+    return Intl.message(
+      'I am on the bus.',
+      name: 'onTheBus',
+      desc: '',
+      args: [],
+    );
   }
 }
 

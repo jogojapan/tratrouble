@@ -23,7 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("TraTrouble"),
-    "departNearby": MessageLookupByLibrary.simpleMessage("Partir à proximité"),
+    "departNearby": MessageLookupByLibrary.simpleMessage(
+      "Monter dans un bus à proximité",
+    ),
     "departures": MessageLookupByLibrary.simpleMessage("Départs"),
     "emailLabel": MessageLookupByLibrary.simpleMessage("E-mail"),
     "feedbackSubmittedContent": MessageLookupByLibrary.simpleMessage(
@@ -42,8 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Les services de localisation sont désactivés.",
     ),
     "min": MessageLookupByLibrary.simpleMessage("min"),
+    "nearby": MessageLookupByLibrary.simpleMessage("À proximité"),
     "now": MessageLookupByLibrary.simpleMessage("maintenant"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
+    "onTheBus": MessageLookupByLibrary.simpleMessage("Je suis dans le bus."),
+    "pushButtonText": MessageLookupByLibrary.simpleMessage(
+      "Vous avez appuyé sur le bouton autant de fois :",
+    ),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "Partager les commentaires sur le transport",
     ),
