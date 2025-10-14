@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:intl/intl.dart';
 import '../generated/l10n.dart';
 import '../v6_vbb/departure.dart';
 import '../widgets/time_window_selector.dart';
@@ -77,8 +78,9 @@ class _DepartureScreenState extends State<DepartureScreen> {
 
   String _extractTime(String isoDateTime) {
     try {
-      final dateTime = DateTime.parse(isoDateTime);
-      return '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}';
+      final dateTime = DateTime.parse(isoDateTime).toLocal();
+      final formatter = DateFormat.Hm(); // 'HH:mm' format
+      return formatter.format(dateTime);
     } catch (_) {
       return isoDateTime;
     }
