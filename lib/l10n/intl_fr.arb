@@ -17,5 +17,20 @@
   "min": "min",
   "now": "maintenant",
   "departNearby": "Monter dans un bus à proximité",
-  "onTheBus": "Je suis dans le bus"
+  "onTheBus": "Je suis dans le bus",
+  "login": "Connexion",
+  "email": "E-mail",
+  "submit": "Soumettre",
+  "emailRequired": "Veuillez entrer une adresse e-mail.",
+  "tokenReceived": "Jeton reçu et stocké.",
+  "tokenNotReceived": "Jeton non reçu du serveur.",
+  "submitEmailFailed": "Échec de la soumission de l'e-mail : {error}",
+  "@submitEmailFailed": {
+    "description": "Message d'erreur lors de l'échec de la soumission de l'e-mail",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

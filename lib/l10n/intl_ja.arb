@@ -17,5 +17,20 @@
   "min": "分",
   "now": "今",
   "departNearby": "近くのバスに乗る",
-  "onTheBus": "既にバスに乗っています"
+  "onTheBus": "既にバスに乗っています",
+  "login": "ログイン",
+  "email": "メール",
+  "submit": "送信",
+  "emailRequired": "メールアドレスを入力してください。",
+  "tokenReceived": "トークンが受け取られ、保存されました。",
+  "tokenNotReceived": "サーバーからトークンが受け取られませんでした。",
+  "submitEmailFailed": "メール送信に失敗しました: {error}",
+  "@submitEmailFailed": {
+    "description": "メール送信に失敗した場合のエラーメッセージ",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

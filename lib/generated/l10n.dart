@@ -184,13 +184,68 @@ class S {
     );
   }
 
-  /// `I am on the bus.`
+  /// `I am on the bus`
   String get onTheBus {
     return Intl.message(
-      'I am on the bus.',
+      'I am on the bus',
       name: 'onTheBus',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message('Submit', name: 'submit', desc: '', args: []);
+  }
+
+  /// `Please enter an email address.`
+  String get emailRequired {
+    return Intl.message(
+      'Please enter an email address.',
+      name: 'emailRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Token received and stored.`
+  String get tokenReceived {
+    return Intl.message(
+      'Token received and stored.',
+      name: 'tokenReceived',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Token not received from server.`
+  String get tokenNotReceived {
+    return Intl.message(
+      'Token not received from server.',
+      name: 'tokenNotReceived',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to submit email: {error}`
+  String submitEmailFailed(String error) {
+    return Intl.message(
+      'Failed to submit email: $error',
+      name: 'submitEmailFailed',
+      desc: 'Error message when email submission fails',
+      args: [error],
     );
   }
 }

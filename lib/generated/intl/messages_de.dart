@@ -20,6 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'de';
 
+  static String m0(error) => "E-Mail-Versand fehlgeschlagen: ${error}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("TraTrouble"),
@@ -27,7 +29,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Steigen Sie in einen Bus in der Nähe ein",
     ),
     "departures": MessageLookupByLibrary.simpleMessage("Abfahrten"),
+    "email": MessageLookupByLibrary.simpleMessage("E-Mail"),
     "emailLabel": MessageLookupByLibrary.simpleMessage("E-Mail"),
+    "emailRequired": MessageLookupByLibrary.simpleMessage(
+      "Bitte geben Sie eine E-Mail-Adresse ein.",
+    ),
     "feedbackSubmittedContent": MessageLookupByLibrary.simpleMessage(
       "Vielen Dank für Ihr Feedback!",
     ),
@@ -43,18 +49,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "locationServicesDisabled": MessageLookupByLibrary.simpleMessage(
       "Ortungsdienste sind deaktiviert.",
     ),
+    "login": MessageLookupByLibrary.simpleMessage("Anmelden"),
     "min": MessageLookupByLibrary.simpleMessage("Min"),
     "nearby": MessageLookupByLibrary.simpleMessage("In der Nähe"),
     "now": MessageLookupByLibrary.simpleMessage("jetzt"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
-    "onTheBus": MessageLookupByLibrary.simpleMessage("Ich bin im Bus."),
+    "onTheBus": MessageLookupByLibrary.simpleMessage("Ich bin im Bus"),
     "pushButtonText": MessageLookupByLibrary.simpleMessage(
       "Sie haben den Knopf so oft gedrückt:",
     ),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "Teilen Sie Transportfeedback",
     ),
+    "submit": MessageLookupByLibrary.simpleMessage("Senden"),
+    "submitEmailFailed": m0,
     "to": MessageLookupByLibrary.simpleMessage("bis"),
+    "tokenNotReceived": MessageLookupByLibrary.simpleMessage(
+      "Token nicht vom Server empfangen.",
+    ),
+    "tokenReceived": MessageLookupByLibrary.simpleMessage(
+      "Token empfangen und gespeichert.",
+    ),
     "transportFeedback": MessageLookupByLibrary.simpleMessage(
       "Transportfeedback",
     ),

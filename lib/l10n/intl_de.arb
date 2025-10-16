@@ -17,5 +17,20 @@
   "min": "Min",
   "now": "jetzt",
   "departNearby": "Steigen Sie in einen Bus in der Nähe ein",
-  "onTheBus": "Ich bin im Bus"
+  "onTheBus": "Ich bin im Bus",
+  "login": "Anmelden",
+  "email": "E-Mail",
+  "submit": "Senden",
+  "emailRequired": "Bitte geben Sie eine E-Mail-Adresse ein.",
+  "tokenReceived": "Token empfangen und gespeichert.",
+  "tokenNotReceived": "Token nicht vom Server empfangen.",
+  "submitEmailFailed": "E-Mail-Versand fehlgeschlagen: {error}",
+  "@submitEmailFailed": {
+    "description": "Fehlermeldung beim Versand der E-Mail",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

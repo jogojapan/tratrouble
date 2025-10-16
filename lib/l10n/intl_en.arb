@@ -16,5 +16,20 @@
   "min": "min",
   "now": "now",
   "departNearby": "Board a bus nearby",
-  "onTheBus": "I am on the bus"
+  "onTheBus": "I am on the bus",
+  "login": "Login",
+  "email": "Email",
+  "submit": "Submit",
+  "emailRequired": "Please enter an email address.",
+  "tokenReceived": "Token received and stored.",
+  "tokenNotReceived": "Token not received from server.",
+  "submitEmailFailed": "Failed to submit email: {error}",
+  "@submitEmailFailed": {
+    "description": "Error message when email submission fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -20,12 +20,16 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ja';
 
+  static String m0(error) => "メール送信に失敗しました: ${error}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("トラトラブル"),
     "departNearby": MessageLookupByLibrary.simpleMessage("近くのバスに乗る"),
     "departures": MessageLookupByLibrary.simpleMessage("出発"),
+    "email": MessageLookupByLibrary.simpleMessage("メール"),
     "emailLabel": MessageLookupByLibrary.simpleMessage("メール"),
+    "emailRequired": MessageLookupByLibrary.simpleMessage("メールアドレスを入力してください。"),
     "feedbackSubmittedContent": MessageLookupByLibrary.simpleMessage(
       "フィードバックありがとうございます！",
     ),
@@ -41,16 +45,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "locationServicesDisabled": MessageLookupByLibrary.simpleMessage(
       "位置情報サービスが無効になっています。",
     ),
+    "login": MessageLookupByLibrary.simpleMessage("ログイン"),
     "min": MessageLookupByLibrary.simpleMessage("分"),
     "nearby": MessageLookupByLibrary.simpleMessage("近く"),
     "now": MessageLookupByLibrary.simpleMessage("今"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
-    "onTheBus": MessageLookupByLibrary.simpleMessage("私はバスに乗っています。"),
+    "onTheBus": MessageLookupByLibrary.simpleMessage("既にバスに乗っています"),
     "pushButtonText": MessageLookupByLibrary.simpleMessage("ボタンを押した回数："),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "輸送フィードバックを共有する",
     ),
+    "submit": MessageLookupByLibrary.simpleMessage("送信"),
+    "submitEmailFailed": m0,
     "to": MessageLookupByLibrary.simpleMessage("行き先"),
+    "tokenNotReceived": MessageLookupByLibrary.simpleMessage(
+      "サーバーからトークンが受け取られませんでした。",
+    ),
+    "tokenReceived": MessageLookupByLibrary.simpleMessage(
+      "トークンが受け取られ、保存されました。",
+    ),
     "transportFeedback": MessageLookupByLibrary.simpleMessage("輸送フィードバック"),
   };
 }
