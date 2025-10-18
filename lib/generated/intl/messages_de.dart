@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appTitle": MessageLookupByLibrary.simpleMessage("TraTrouble"),
     "deepLinkError": m0,
     "departNearby": MessageLookupByLibrary.simpleMessage(
-      "Steigen Sie in einen Bus in der Nähe ein",
+      "Demnächst in der Nähe einsteigen",
     ),
     "departures": MessageLookupByLibrary.simpleMessage("Abfahrten"),
     "email": MessageLookupByLibrary.simpleMessage("E-Mail"),
@@ -69,9 +69,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "now": MessageLookupByLibrary.simpleMessage("jetzt"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "onTheBus": MessageLookupByLibrary.simpleMessage("Ich bin im Bus"),
-    "pushButtonText": MessageLookupByLibrary.simpleMessage(
-      "Sie haben den Knopf so oft gedrückt:",
-    ),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "Teilen Sie Transportfeedback",
     ),

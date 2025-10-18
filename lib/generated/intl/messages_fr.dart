@@ -69,9 +69,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "now": MessageLookupByLibrary.simpleMessage("maintenant"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "onTheBus": MessageLookupByLibrary.simpleMessage("Je suis dans le bus"),
-    "pushButtonText": MessageLookupByLibrary.simpleMessage(
-      "Vous avez appuyé sur le bouton autant de fois :",
-    ),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "Partager les commentaires sur le transport",
     ),

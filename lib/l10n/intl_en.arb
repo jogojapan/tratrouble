@@ -6,7 +6,6 @@
   "feedbackSubmittedContent": "Thank you for your feedback!",
   "ok": "OK",
   "emailLabel": "Email",
-  "pushButtonText": "You have pushed the button this many times:",
   "nearby": "Nearby",
   "locationServicesDisabled": "Location services are disabled.",
   "locationPermissionDenied": "Location permission denied.",

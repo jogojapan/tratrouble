@@ -65,7 +65,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "now": MessageLookupByLibrary.simpleMessage("今"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "onTheBus": MessageLookupByLibrary.simpleMessage("既にバスに乗っています"),
-    "pushButtonText": MessageLookupByLibrary.simpleMessage("ボタンを押した回数："),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "輸送フィードバックを共有する",
     ),
