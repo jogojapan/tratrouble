@@ -20,19 +20,32 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'fr';
 
-  static String m0(error) => "Échec de la soumission de l\'e-mail : ${error}";
+  static String m0(error) => "Erreur de lien profond : ${error}";
+
+  static String m1(error) => "Échec de la soumission de l\'e-mail : ${error}";
+
+  static String m2(error) => "Erreur de vérification : ${error}";
+
+  static String m3(error) => "Vérification échouée : ${error}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("TraTrouble"),
+    "deepLinkError": m0,
     "departNearby": MessageLookupByLibrary.simpleMessage(
       "Monter dans un bus à proximité",
     ),
     "departures": MessageLookupByLibrary.simpleMessage("Départs"),
     "email": MessageLookupByLibrary.simpleMessage("E-mail"),
+    "emailAlreadyVerified": MessageLookupByLibrary.simpleMessage(
+      "E-mail déjà vérifié.",
+    ),
     "emailLabel": MessageLookupByLibrary.simpleMessage("E-mail"),
     "emailRequired": MessageLookupByLibrary.simpleMessage(
       "Veuillez entrer une adresse e-mail.",
+    ),
+    "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "E-mail vérifié avec succès !",
     ),
     "feedbackSubmittedContent": MessageLookupByLibrary.simpleMessage(
       "Merci pour vos commentaires !",
@@ -62,16 +75,24 @@ class MessageLookup extends MessageLookupByLibrary {
       "Partager les commentaires sur le transport",
     ),
     "submit": MessageLookupByLibrary.simpleMessage("Soumettre"),
-    "submitEmailFailed": m0,
+    "submitEmailFailed": m1,
+    "submitEmailSuccess": MessageLookupByLibrary.simpleMessage(
+      "Email envoyé. Vérifiez votre email.",
+    ),
     "to": MessageLookupByLibrary.simpleMessage("à"),
     "tokenNotReceived": MessageLookupByLibrary.simpleMessage(
       "Jeton non reçu du serveur.",
     ),
-    "tokenReceived": MessageLookupByLibrary.simpleMessage(
-      "Jeton reçu et stocké.",
+    "tokenStored": MessageLookupByLibrary.simpleMessage(
+      "Jeton stocké avec succès.",
     ),
     "transportFeedback": MessageLookupByLibrary.simpleMessage(
       "Commentaires sur le transport",
+    ),
+    "verificationError": m2,
+    "verificationFailed": m3,
+    "verificationLinkExpired": MessageLookupByLibrary.simpleMessage(
+      "Le lien de vérification a expiré. Veuillez en demander un nouveau.",
     ),
   };
 }

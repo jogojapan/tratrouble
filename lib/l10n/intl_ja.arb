@@ -23,7 +23,7 @@
   "submit": "送信",
   "emailRequired": "メールアドレスを入力してください。",
   "tokenReceived": "トークンが受け取られ、保存されました。",
-  "tokenNotReceived": "サーバーからトークンが受け取られませんでした。",
+  "submitEmailSuccess": "有難うございます。メールをご確認ください。",
   "submitEmailFailed": "メール送信に失敗しました: {error}",
   "@submitEmailFailed": {
     "description": "メール送信に失敗した場合のエラーメッセージ",
@@ -32,5 +32,36 @@
         "type": "String"
       }
     }
-  }
+  },
+  "emailVerifiedSuccessfully": "メールが正常に確認されました！",
+  "verificationFailed": "確認に失敗しました: {error}",
+  "@verificationFailed": {
+    "description": "メール確認に失敗した場合のエラーメッセージ",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "verificationError": "確認エラー: {error}",
+  "@verificationError": {
+    "description": "メール確認エラーが発生した場合のエラーメッセージ",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkError": "ディープリンクエラー: {error}",
+  "@deepLinkError": {
+    "description": "ディープリンク処理中にエラーが発生した場合のエラーメッセージ",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "emailAlreadyVerified": "メールはすでに確認されています。",
+  "verificationLinkExpired": "確認リンクの有効期限が切れています。新しいリンクをリクエストしてください。",
+  "tokenStored": "トークンが正常に保存されました。"
 }

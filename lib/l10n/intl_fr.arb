@@ -22,7 +22,7 @@
   "email": "E-mail",
   "submit": "Soumettre",
   "emailRequired": "Veuillez entrer une adresse e-mail.",
-  "tokenReceived": "Jeton reçu et stocké.",
+  "submitEmailSuccess": "Email envoyé. Vérifiez votre email.",
   "tokenNotReceived": "Jeton non reçu du serveur.",
   "submitEmailFailed": "Échec de la soumission de l'e-mail : {error}",
   "@submitEmailFailed": {
@@ -32,5 +32,36 @@
         "type": "String"
       }
     }
-  }
+  },
+  "emailVerifiedSuccessfully": "E-mail vérifié avec succès !",
+  "verificationFailed": "Vérification échouée : {error}",
+  "@verificationFailed": {
+    "description": "Message d'erreur lors de l'échec de la vérification de l'e-mail",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "verificationError": "Erreur de vérification : {error}",
+  "@verificationError": {
+    "description": "Message d'erreur lors d'une erreur de vérification d'e-mail",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkError": "Erreur de lien profond : {error}",
+  "@deepLinkError": {
+    "description": "Message d'erreur lors du traitement d'un lien profond",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "emailAlreadyVerified": "E-mail déjà vérifié.",
+  "verificationLinkExpired": "Le lien de vérification a expiré. Veuillez en demander un nouveau.",
+  "tokenStored": "Jeton stocké avec succès."
 }

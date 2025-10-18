@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tratrouble/utils/secure_storage.dart';
 import 'package:tratrouble/config/api_constants.dart';
 import 'dart:convert';
 import '../generated/l10n.dart';
@@ -35,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
       final response = await http.post(
         Uri.parse(ApiConstants.submitEmailUrl),
         headers: {'Content-Type': 'application/json'},
-        body: json.encode({'email': email}),
+        body: json.encode({'email': email, 'platform': 'mobile'}),
       );
 
       if (!mounted) {
@@ -46,26 +45,10 @@ class _LoginScreenState extends State<LoginScreen> {
       }
 
       if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        final token = data['token'];
-        if (token != null) {
-          await SecureStorage.saveToken(token);
-          if (!mounted) {
-            setState(() {
-              _isLoading = false;
-            });
-            return;
-          }
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(S.of(context).tokenReceived)));
-          Navigator.of(context).pop();
-        } else {
-          setState(() {
-            _errorMessage = S.of(context).tokenNotReceived;
-            _isLoading = false;
-          });
-        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(S.of(context).submitEmailSuccess)),
+        );
+        Navigator.of(context).pop();
       } else {
         setState(() {
           _errorMessage = S

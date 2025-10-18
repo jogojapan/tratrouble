@@ -20,16 +20,29 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ja';
 
-  static String m0(error) => "メール送信に失敗しました: ${error}";
+  static String m0(error) => "ディープリンクエラー: ${error}";
+
+  static String m1(error) => "メール送信に失敗しました: ${error}";
+
+  static String m2(error) => "確認エラー: ${error}";
+
+  static String m3(error) => "確認に失敗しました: ${error}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("トラトラブル"),
+    "deepLinkError": m0,
     "departNearby": MessageLookupByLibrary.simpleMessage("近くのバスに乗る"),
     "departures": MessageLookupByLibrary.simpleMessage("出発"),
     "email": MessageLookupByLibrary.simpleMessage("メール"),
+    "emailAlreadyVerified": MessageLookupByLibrary.simpleMessage(
+      "メールはすでに確認されています。",
+    ),
     "emailLabel": MessageLookupByLibrary.simpleMessage("メール"),
     "emailRequired": MessageLookupByLibrary.simpleMessage("メールアドレスを入力してください。"),
+    "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "メールが正常に確認されました！",
+    ),
     "feedbackSubmittedContent": MessageLookupByLibrary.simpleMessage(
       "フィードバックありがとうございます！",
     ),
@@ -56,14 +69,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "輸送フィードバックを共有する",
     ),
     "submit": MessageLookupByLibrary.simpleMessage("送信"),
-    "submitEmailFailed": m0,
+    "submitEmailFailed": m1,
+    "submitEmailSuccess": MessageLookupByLibrary.simpleMessage(
+      "有難うございます。メールをご確認ください。",
+    ),
     "to": MessageLookupByLibrary.simpleMessage("行き先"),
-    "tokenNotReceived": MessageLookupByLibrary.simpleMessage(
-      "サーバーからトークンが受け取られませんでした。",
-    ),
-    "tokenReceived": MessageLookupByLibrary.simpleMessage(
-      "トークンが受け取られ、保存されました。",
-    ),
+    "tokenStored": MessageLookupByLibrary.simpleMessage("トークンが正常に保存されました。"),
     "transportFeedback": MessageLookupByLibrary.simpleMessage("輸送フィードバック"),
+    "verificationError": m2,
+    "verificationFailed": m3,
+    "verificationLinkExpired": MessageLookupByLibrary.simpleMessage(
+      "確認リンクの有効期限が切れています。新しいリンクをリクエストしてください。",
+    ),
   };
 }

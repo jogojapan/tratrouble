@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:tratrouble/screens/login_screen.dart';
 import 'providers/theme_provider.dart';
 import 'providers/locale_provider.dart';
+import 'providers/email_verification_provider.dart';
 import 'screens/settings_screen.dart';
 import 'screens/nearby_screen.dart';
 import 'screens/on_bus_screen.dart';
+import 'services/email_verification_service.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -21,6 +24,7 @@ class TraTroubleApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
+        ChangeNotifierProvider(create: (_) => EmailVerificationProvider()),
       ],
       child: Consumer2<ThemeProvider, LocaleProvider>(
         builder: (context, themeProvider, localeProvider, child) {
@@ -68,10 +72,34 @@ class TraTroubleHome extends StatefulWidget {
 }
 
 class _TraTroubleHomeState extends State<TraTroubleHome> {
+  late EmailVerificationService _emailVerificationService;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailVerificationService = EmailVerificationService();
+    // Initialize deep link listener after the first frame
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _emailVerificationService.initDeepLinkListener(context);
+    });
+  }
+
+  @override
+  void dispose() {
+    _emailVerificationService.dispose();
+    super.dispose();
+  }
+
   void _navigateToSettings() {
     Navigator.of(
       context,
     ).push(MaterialPageRoute(builder: (context) => const SettingsScreen()));
+  }
+
+  void _navigateToLogin() {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 
   void _navigateToNearby() {
@@ -88,8 +116,8 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeProvider>(
-      builder: (context, themeProvider, child) {
+    return Consumer2<ThemeProvider, EmailVerificationProvider>(
+      builder: (context, themeProvider, verificationProvider, child) {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -111,11 +139,61 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
           ),
           body: Column(
             children: [
+              if (verificationProvider.isVerifying)
+                const LinearProgressIndicator()
+              else if (verificationProvider.verificationMessage != null)
+                Container(
+                  color: verificationProvider.isSuccess
+                      ? Colors.green.shade100
+                      : Colors.red.shade100,
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Icon(
+                        verificationProvider.isSuccess
+                            ? Icons.check_circle
+                            : Icons.error,
+                        color: verificationProvider.isSuccess
+                            ? Colors.green
+                            : Colors.red,
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          verificationProvider.verificationMessage!,
+                          style: TextStyle(
+                            color: verificationProvider.isSuccess
+                                ? Colors.green.shade900
+                                : Colors.red.shade900,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.2,
                 width: double.infinity,
                 child: Column(
                   children: [
+                    const SizedBox(height: 8),
+                    Expanded(
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          onPressed: _navigateToLogin,
+                          child: Text(
+                            S.of(context).login,
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 8),
                     Expanded(
                       child: SizedBox(

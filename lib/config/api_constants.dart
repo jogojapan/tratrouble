@@ -18,6 +18,9 @@ class ApiConstants {
   /// Endpoint for submitting email and receiving authentication token
   static const String submitEmailEndpoint = '/api/submit-email/';
 
-  /// Full URL for email submission
+  /// Endpoint for verifying email and receiving authentication token
+  static const String verifyEmailEndpoint = '/api/verify-email/';
+
   static String get submitEmailUrl => '$baseUrl$submitEmailEndpoint';
+  static String get verifyEmailUrl => '$baseUrl$verifyEmailEndpoint';
 }

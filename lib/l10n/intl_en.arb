@@ -21,7 +21,7 @@
   "email": "Email",
   "submit": "Submit",
   "emailRequired": "Please enter an email address.",
-  "tokenReceived": "Token received and stored.",
+  "submitEmailSuccess": "Registration submitted. Check your email.",
   "tokenNotReceived": "Token not received from server.",
   "submitEmailFailed": "Failed to submit email: {error}",
   "@submitEmailFailed": {
@@ -31,5 +31,36 @@
         "type": "String"
       }
     }
-  }
+  },
+  "emailVerifiedSuccessfully": "Email verified successfully!",
+  "verificationFailed": "Verification failed: {error}",
+  "@verificationFailed": {
+    "description": "Error message when email verification fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "verificationError": "Verification error: {error}",
+  "@verificationError": {
+    "description": "Error message when email verification encounters an error",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkError": "Deep link error: {error}",
+  "@deepLinkError": {
+    "description": "Error message when processing a deep link fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "emailAlreadyVerified": "Email already verified.",
+  "verificationLinkExpired": "Verification link has expired. Please request a new one.",
+  "tokenStored": "Token stored successfully."
 }

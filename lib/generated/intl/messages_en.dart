@@ -20,17 +20,30 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(error) => "Failed to submit email: ${error}";
+  static String m0(error) => "Deep link error: ${error}";
+
+  static String m1(error) => "Failed to submit email: ${error}";
+
+  static String m2(error) => "Verification error: ${error}";
+
+  static String m3(error) => "Verification failed: ${error}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("TraTrouble"),
+    "deepLinkError": m0,
     "departNearby": MessageLookupByLibrary.simpleMessage("Board a bus nearby"),
     "departures": MessageLookupByLibrary.simpleMessage("Departures"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailAlreadyVerified": MessageLookupByLibrary.simpleMessage(
+      "Email already verified.",
+    ),
     "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
     "emailRequired": MessageLookupByLibrary.simpleMessage(
       "Please enter an email address.",
+    ),
+    "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Email verified successfully!",
     ),
     "feedbackSubmittedContent": MessageLookupByLibrary.simpleMessage(
       "Thank you for your feedback!",
@@ -60,16 +73,24 @@ class MessageLookup extends MessageLookupByLibrary {
       "Share Transport Feedback",
     ),
     "submit": MessageLookupByLibrary.simpleMessage("Submit"),
-    "submitEmailFailed": m0,
+    "submitEmailFailed": m1,
+    "submitEmailSuccess": MessageLookupByLibrary.simpleMessage(
+      "Registration submitted. Check your email.",
+    ),
     "to": MessageLookupByLibrary.simpleMessage("to"),
     "tokenNotReceived": MessageLookupByLibrary.simpleMessage(
       "Token not received from server.",
     ),
-    "tokenReceived": MessageLookupByLibrary.simpleMessage(
-      "Token received and stored.",
+    "tokenStored": MessageLookupByLibrary.simpleMessage(
+      "Token stored successfully.",
     ),
     "transportFeedback": MessageLookupByLibrary.simpleMessage(
       "Transport Feedback",
+    ),
+    "verificationError": m2,
+    "verificationFailed": m3,
+    "verificationLinkExpired": MessageLookupByLibrary.simpleMessage(
+      "Verification link has expired. Please request a new one.",
     ),
   };
 }

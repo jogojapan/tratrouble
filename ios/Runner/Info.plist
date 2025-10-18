@@ -47,5 +47,16 @@
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This app needs access to your location to show nearby coordinates.</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.yourcompany.yourapp</string>
+            </array>
+            <key>CFBundleURLName</key>
+            <string>verify</string>
+        </dict>
+    </array>
 </dict>
 </plist>

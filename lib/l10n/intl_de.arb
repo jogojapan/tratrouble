@@ -22,7 +22,7 @@
   "email": "E-Mail",
   "submit": "Senden",
   "emailRequired": "Bitte geben Sie eine E-Mail-Adresse ein.",
-  "tokenReceived": "Token empfangen und gespeichert.",
+  "submitEmailSuccess": "Email wird verschickt. Bitte Email checken.",
   "tokenNotReceived": "Token nicht vom Server empfangen.",
   "submitEmailFailed": "E-Mail-Versand fehlgeschlagen: {error}",
   "@submitEmailFailed": {
@@ -32,5 +32,36 @@
         "type": "String"
       }
     }
-  }
+  },
+  "emailVerifiedSuccessfully": "E-Mail erfolgreich verifiziert!",
+  "verificationFailed": "Verifizierung fehlgeschlagen: {error}",
+  "@verificationFailed": {
+    "description": "Fehlermeldung bei fehlgeschlagener E-Mail-Verifizierung",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "verificationError": "Verifizierungsfehler: {error}",
+  "@verificationError": {
+    "description": "Fehlermeldung bei E-Mail-Verifizierungsfehler",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkError": "Deep-Link-Fehler: {error}",
+  "@deepLinkError": {
+    "description": "Fehlermeldung bei der Verarbeitung eines Deep Links",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "emailAlreadyVerified": "E-Mail bereits verifiziert.",
+  "verificationLinkExpired": "Verifizierungslink ist abgelaufen. Bitte fordern Sie einen neuen an.",
+  "tokenStored": "Token erfolgreich gespeichert."
 }

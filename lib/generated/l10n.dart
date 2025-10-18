@@ -219,11 +219,11 @@ class S {
     );
   }
 
-  /// `Token received and stored.`
-  String get tokenReceived {
+  /// `Registration submitted. Check your email.`
+  String get submitEmailSuccess {
     return Intl.message(
-      'Token received and stored.',
-      name: 'tokenReceived',
+      'Registration submitted. Check your email.',
+      name: 'submitEmailSuccess',
       desc: '',
       args: [],
     );
@@ -246,6 +246,76 @@ class S {
       name: 'submitEmailFailed',
       desc: 'Error message when email submission fails',
       args: [error],
+    );
+  }
+
+  /// `Email verified successfully!`
+  String get emailVerifiedSuccessfully {
+    return Intl.message(
+      'Email verified successfully!',
+      name: 'emailVerifiedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification failed: {error}`
+  String verificationFailed(String error) {
+    return Intl.message(
+      'Verification failed: $error',
+      name: 'verificationFailed',
+      desc: 'Error message when email verification fails',
+      args: [error],
+    );
+  }
+
+  /// `Verification error: {error}`
+  String verificationError(String error) {
+    return Intl.message(
+      'Verification error: $error',
+      name: 'verificationError',
+      desc: 'Error message when email verification encounters an error',
+      args: [error],
+    );
+  }
+
+  /// `Deep link error: {error}`
+  String deepLinkError(String error) {
+    return Intl.message(
+      'Deep link error: $error',
+      name: 'deepLinkError',
+      desc: 'Error message when processing a deep link fails',
+      args: [error],
+    );
+  }
+
+  /// `Email already verified.`
+  String get emailAlreadyVerified {
+    return Intl.message(
+      'Email already verified.',
+      name: 'emailAlreadyVerified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification link has expired. Please request a new one.`
+  String get verificationLinkExpired {
+    return Intl.message(
+      'Verification link has expired. Please request a new one.',
+      name: 'verificationLinkExpired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Token stored successfully.`
+  String get tokenStored {
+    return Intl.message(
+      'Token stored successfully.',
+      name: 'tokenStored',
+      desc: '',
+      args: [],
     );
   }
 }
