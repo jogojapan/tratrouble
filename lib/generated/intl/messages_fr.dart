@@ -63,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Les services de localisation sont désactivés.",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Connexion"),
+    "logout": MessageLookupByLibrary.simpleMessage("Déconnexion"),
     "min": MessageLookupByLibrary.simpleMessage("min"),
     "nearby": MessageLookupByLibrary.simpleMessage("À proximité"),
     "now": MessageLookupByLibrary.simpleMessage("maintenant"),

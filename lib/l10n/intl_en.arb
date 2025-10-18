@@ -18,6 +18,7 @@
   "departNearby": "Board a bus nearby",
   "onTheBus": "I am on the bus",
   "login": "Login",
+  "logout": "Logout",
   "email": "Email",
   "submit": "Submit",
   "emailRequired": "Please enter an email address.",

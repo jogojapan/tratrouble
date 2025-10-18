@@ -19,6 +19,7 @@
   "departNearby": "Steigen Sie in einen Bus in der Nähe ein",
   "onTheBus": "Ich bin im Bus",
   "login": "Anmelden",
+  "logout": "Abmelden",
   "email": "E-Mail",
   "submit": "Senden",
   "emailRequired": "Bitte geben Sie eine E-Mail-Adresse ein.",

@@ -19,6 +19,7 @@
   "departNearby": "Monter dans un bus à proximité",
   "onTheBus": "Je suis dans le bus",
   "login": "Connexion",
+  "logout": "Déconnexion",
   "email": "E-mail",
   "submit": "Soumettre",
   "emailRequired": "Veuillez entrer une adresse e-mail.",

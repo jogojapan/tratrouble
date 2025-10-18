@@ -63,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ortungsdienste sind deaktiviert.",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Anmelden"),
+    "logout": MessageLookupByLibrary.simpleMessage("Abmelden"),
     "min": MessageLookupByLibrary.simpleMessage("Min"),
     "nearby": MessageLookupByLibrary.simpleMessage("In der Nähe"),
     "now": MessageLookupByLibrary.simpleMessage("jetzt"),

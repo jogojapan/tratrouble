@@ -199,6 +199,11 @@ class S {
     return Intl.message('Login', name: 'login', desc: '', args: []);
   }
 
+  /// `Logout`
+  String get logout {
+    return Intl.message('Logout', name: 'logout', desc: '', args: []);
+  }
+
   /// `Email`
   String get email {
     return Intl.message('Email', name: 'email', desc: '', args: []);

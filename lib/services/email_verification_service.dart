@@ -5,18 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tratrouble/config/api_constants.dart';
 import 'package:tratrouble/providers/email_verification_provider.dart';
-import 'package:tratrouble/utils/secure_storage.dart';
+import 'package:tratrouble/providers/auth_provider.dart';
 import 'package:tratrouble/generated/l10n.dart';
 
 class EmailVerificationService {
   late AppLinks _appLinks;
   StreamSubscription? _deepLinkSubscription;
   late EmailVerificationProvider _provider;
+  late AuthProvider _authProvider;
   late BuildContext _context;
 
   void initDeepLinkListener(BuildContext context) {
     _appLinks = AppLinks();
     _provider = context.read<EmailVerificationProvider>();
+    _authProvider = context.read<AuthProvider>();
     _context = context;
 
     // Capture localized strings before setting up listener
@@ -57,12 +59,12 @@ class EmailVerificationService {
       );
 
       if (response.statusCode == 200) {
-        // Success: store token and show success message
-        await SecureStorage.saveToken(token);
+        // Success: store token, update auth state, and show success message
+        await _authProvider.setLoggedIn(token);
         _provider.setMessage(successMessage, isSuccess: true);
       } else if (response.statusCode == 409) {
-        // Conflict: email already verified, but store token anyway
-        await SecureStorage.saveToken(token);
+        // Conflict: email already verified, but store token and update auth state anyway
+        await _authProvider.setLoggedIn(token);
         _provider.setMessage(s.emailAlreadyVerified, isSuccess: true);
       } else if (response.statusCode == 410) {
         // Gone: verification link expired

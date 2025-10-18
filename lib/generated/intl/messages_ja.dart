@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "位置情報サービスが無効になっています。",
     ),
     "login": MessageLookupByLibrary.simpleMessage("ログイン"),
+    "logout": MessageLookupByLibrary.simpleMessage("ログアウト"),
     "min": MessageLookupByLibrary.simpleMessage("分"),
     "nearby": MessageLookupByLibrary.simpleMessage("近く"),
     "now": MessageLookupByLibrary.simpleMessage("今"),

@@ -61,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Location services are disabled.",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "min": MessageLookupByLibrary.simpleMessage("min"),
     "nearby": MessageLookupByLibrary.simpleMessage("Nearby"),
     "now": MessageLookupByLibrary.simpleMessage("now"),

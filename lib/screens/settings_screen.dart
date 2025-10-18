@@ -2,15 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/locale_provider.dart';
 import '../providers/theme_provider.dart';
+import '../providers/auth_provider.dart';
 import '../generated/l10n.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
+  Future<void> _logout(BuildContext context) async {
+    final authProvider = context.read<AuthProvider>();
+    await authProvider.logout();
+    if (context.mounted) {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final localeProvider = Provider.of<LocaleProvider>(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final authProvider = Provider.of<AuthProvider>(context);
 
     final isDark = themeProvider.isDarkMode;
     final textColor = isDark ? Colors.grey[300] : Colors.black;
@@ -19,6 +29,16 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(title: Text(S.of(context).appTitle)),
       body: ListView(
         children: [
+          if (authProvider.isLoggedIn)
+            ListTile(
+              title: Text(
+                S.of(context).logout,
+                style: TextStyle(color: textColor),
+              ),
+              trailing: Icon(Icons.logout, color: textColor),
+              onTap: () => _logout(context),
+            ),
+          if (authProvider.isLoggedIn) const Divider(),
           ListTile(
             title: Text('English', style: TextStyle(color: textColor)),
             trailing: localeProvider.locale.languageCode == 'en'

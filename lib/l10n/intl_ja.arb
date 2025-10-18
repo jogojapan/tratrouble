@@ -19,6 +19,7 @@
   "departNearby": "近くのバスに乗る",
   "onTheBus": "既にバスに乗っています",
   "login": "ログイン",
+  "logout": "ログアウト",
   "email": "メール",
   "submit": "送信",
   "emailRequired": "メールアドレスを入力してください。",
