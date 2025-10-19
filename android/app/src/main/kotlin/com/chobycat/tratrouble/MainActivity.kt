@@ -1,4 +1,4 @@
-package com.example.tratrouble
+package com.chobycat.tratrouble
 
 import io.flutter.embedding.android.FlutterActivity
 

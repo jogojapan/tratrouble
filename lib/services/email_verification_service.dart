@@ -36,11 +36,23 @@ class EmailVerificationService {
   }
 
   void _handleDeepLink(Uri uri) {
+    // Handle custom scheme: com.chobycat.tratrouble://verify?token=...
     if (uri.scheme == 'com.chobycat.tratrouble' && uri.host == 'verify') {
       final token = uri.queryParameters['token'];
-
       if (token != null) {
         _verifyEmail(token);
+      }
+      return;
+    }
+
+    // Handle HTTPS scheme: https://tratrouble.chobycat.com/api/verify-email/?token=...
+    if (uri.scheme == 'https' && uri.host == 'tratrouble.chobycat.com') {
+      final path = uri.path;
+      if (path == '/api/verify-email/' || path == '/api/verify-email') {
+        final token = uri.queryParameters['token'];
+        if (token != null) {
+          _verifyEmail(token);
+        }
       }
     }
   }
