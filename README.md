@@ -4,6 +4,20 @@ This is a Flutter-based app currently in development. Once complete, it will ena
 
 ## Running the App
 
+### Building the App with a Custom ID
+The app id and namespace is defined as `com.example.app` by default. If you want to install the app on test devices as you develop customizations, we strongly recommend that you first choose a new name for your app build, **before you run the first build**. Changing this later requires you to wipe the app completely from the test device, which is quite cumbersome.
+
+#### Setting the App ID
+Here is how you do this:
+1. Create a local settings file `local.properties` in the project root (i.e., the same directory that this README resides in), and define the desired app id in it:
+    ```
+    appId=com.mydomain.appname
+    ```
+
+    You'll find an `example.local.properties` in the root directory. You may as well remove the `example.` prefix and modify it instead of creating a new file.
+    
+2. Run the Flutter build as normal, see the section below.
+
 ### Development Mode
 
 To run the app against a development backend:

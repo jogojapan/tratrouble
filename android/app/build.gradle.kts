@@ -1,3 +1,17 @@
+import java.util.Properties
+import java.io.FileInputStream
+
+val localProperties = Properties().apply {
+    val localFile = project.rootProject.file("../local.properties")
+    if (localFile.exists()) {
+        load(FileInputStream(localFile))
+    }
+}
+
+// TODO for developers: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+// Best do this in the local.properties file
+val appId: String = localProperties.getProperty("appId") ?: "com.example.app"
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -6,7 +20,7 @@ plugins {
 }
 
 android {
-    namespace = "com.chobycat.tratrouble"
+    namespace = appId
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -20,8 +34,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.chobycat.tratrouble"
+        applicationId = appId
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
