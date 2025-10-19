@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:app_links/app_links.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
@@ -7,6 +9,8 @@ import 'package:tratrouble/config/api_constants.dart';
 import 'package:tratrouble/providers/email_verification_provider.dart';
 import 'package:tratrouble/providers/auth_provider.dart';
 import 'package:tratrouble/generated/l10n.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 
 class EmailVerificationService {
   late AppLinks _appLinks;
@@ -14,6 +18,28 @@ class EmailVerificationService {
   late EmailVerificationProvider _provider;
   late AuthProvider _authProvider;
   late BuildContext _context;
+
+  static final Uuid _uuid = Uuid();
+  static const String _deviceIdKey = 'app_device_id';
+
+  static Future<String> getDeviceId() async {
+    final prefs = await SharedPreferences.getInstance();
+    String? deviceId = prefs.getString(_deviceIdKey);
+
+    if (deviceId == null) {
+      // We generate device ids that are basically random UUIDs.
+      deviceId = 'device_${_uuid.v4()}';
+      await prefs.setString(_deviceIdKey, deviceId);
+    }
+
+    return deviceId;
+  }
+
+  // Method to reset device ID (for future privacy controls)
+  static Future<void> resetDeviceId() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_deviceIdKey);
+  }
 
   void initDeepLinkListener(BuildContext context) {
     _appLinks = AppLinks();
@@ -65,9 +91,11 @@ class EmailVerificationService {
     final s = S.of(_context);
 
     try {
+      final deviceId = await getDeviceId();
       final response = await http.post(
         Uri.parse(ApiConstants.verifyEmailUrl),
-        body: {'token': token},
+        headers: {'Content-Type': 'application/json', 'X-Device-ID': deviceId},
+        body: json.encode({'token': token, 'platform': 'mobile'}),
       );
 
       if (response.statusCode == 200) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tratrouble/config/api_constants.dart';
+import 'package:tratrouble/services/email_verification_service.dart';
 import 'dart:convert';
 import '../generated/l10n.dart';
 
@@ -25,6 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
+    final deviceId = await EmailVerificationService.getDeviceId();
+
     setState(() {
       _isLoading = true;
       _errorMessage = null;
@@ -33,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       final response = await http.post(
         Uri.parse(ApiConstants.submitEmailUrl),
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'X-Device-ID': deviceId},
         body: json.encode({'email': email, 'platform': 'mobile'}),
       );
 
