@@ -82,8 +82,10 @@ class _TraTroubleHomeState extends State<TraTroubleHome> {
     _emailVerificationService = EmailVerificationService();
     // Initialize auth state and deep link listener after the first frame
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) return;
       final authProvider = context.read<AuthProvider>();
       await authProvider.initialize();
+      if (!mounted) return;
       _emailVerificationService.initDeepLinkListener(context);
     });
   }
