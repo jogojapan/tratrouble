@@ -44,7 +44,7 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
     _determinePosition();
 
     // Start periodic timer to reload movements every 3 seconds
-    _periodicTimer = Timer.periodic(const Duration(seconds: 3), (timer) async {
+    _periodicTimer = Timer.periodic(const Duration(seconds: 5), (timer) async {
       if (mounted && _lastMapCenter != null && !_popupVisible) {
         await _loadMovementsAroundLocation(_lastMapCenter!);
       }
@@ -165,6 +165,7 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
           size: 60,
         );
       } else if (productName == 's-bahn' ||
+          productName == 's' ||
           productName == 're' ||
           productName == 'rb' ||
           productName == 'rb/re') {
@@ -179,7 +180,16 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
           color: Colors.deepPurpleAccent,
           size: 60,
         );
+      } else if (productName == 'u-bahn' || productName == 'u') {
+        icon = Icon(Icons.subway_rounded, color: Colors.blue, size: 60);
+      } else if (productName == 'ice') {
+        icon = Icon(
+          Icons.directions_railway_filled_sharp,
+          color: Colors.blueGrey,
+          size: 60,
+        );
       } else {
+        //print("Unknown product name: $productName");
         icon = Icon(
           Icons.question_mark_rounded,
           color: Colors.black38,
