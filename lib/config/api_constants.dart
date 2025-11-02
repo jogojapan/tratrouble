@@ -21,6 +21,10 @@ class ApiConstants {
   /// Endpoint for verifying email and receiving authentication token
   static const String verifyEmailEndpoint = '/api/verify-email/';
 
+  /// Endpoint for submitting ill-formed JSON that cannot be parsed
+  static const String badJsonEndpoint = '/api/bad-json/';
+
   static String get submitEmailUrl => '$baseUrl$submitEmailEndpoint';
   static String get verifyEmailUrl => '$baseUrl$verifyEmailEndpoint';
+  static String get badJsonUrl => '$baseUrl$badJsonEndpoint';
 }
