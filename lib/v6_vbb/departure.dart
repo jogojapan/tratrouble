@@ -78,7 +78,7 @@ class Stop {
 @JsonSerializable()
 class Location {
   final String type;
-  final String id;
+  final String? id;
   final double latitude;
   final double longitude;
 
@@ -123,11 +123,11 @@ class Products {
 class Line {
   final String type;
   final String id;
-  final String fahrtNr;
+  final String? fahrtNr;
   final String name;
   @JsonKey(name: 'public')
   final bool isPublic;
-  final String adminCode;
+  final String? adminCode;
   final String productName;
   final String mode;
   final String product;

@@ -70,7 +70,7 @@ Map<String, dynamic> _$StopToJson(Stop instance) => <String, dynamic>{
 
 Location _$LocationFromJson(Map<String, dynamic> json) => Location(
   type: json['type'] as String,
-  id: json['id'] as String,
+  id: json['id'] as String?,
   latitude: (json['latitude'] as num).toDouble(),
   longitude: (json['longitude'] as num).toDouble(),
 );
@@ -105,10 +105,10 @@ Map<String, dynamic> _$ProductsToJson(Products instance) => <String, dynamic>{
 Line _$LineFromJson(Map<String, dynamic> json) => Line(
   type: json['type'] as String,
   id: json['id'] as String,
-  fahrtNr: json['fahrtNr'] as String,
+  fahrtNr: json['fahrtNr'] as String?,
   name: json['name'] as String,
   isPublic: json['public'] as bool,
-  adminCode: json['adminCode'] as String,
+  adminCode: json['adminCode'] as String?,
   productName: json['productName'] as String,
   mode: json['mode'] as String,
   product: json['product'] as String,
