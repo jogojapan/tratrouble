@@ -1,0 +1,402 @@
+{
+	"movements": [
+		{
+			"direction": "Teltow Bahnhof",
+			"tripId": "1|78878|6|86|2112025",
+			"line": {
+				"type": "line",
+				"id": "de-vbb-12069616-bus-x1",
+				"fahrtNr": null,
+				"name": "X1",
+				"public": true,
+				"productName": "Bus",
+				"mode": "bus",
+				"product": "bus",
+				"operator": {
+					"type": "operator",
+					"id": "regiobus-potsdam-mittelmark-gmbh",
+					"name": "regiobus Potsdam Mittelmark GmbH"
+				}
+			},
+			"location": {
+				"type": "location",
+				"latitude": 52.39334,
+				"longitude": 13.235151
+			},
+			"nextStopovers": [
+				{
+					"stop": {
+						"type": "stop",
+						"id": "900230999",
+						"name": "S Potsdam Hauptbahnhof",
+						"location": {
+							"type": "location",
+							"id": "900230999",
+							"latitude": 52.391443,
+							"longitude": 13.06716
+						},
+						"products": {
+							"suburban": true,
+							"subway": false,
+							"tram": true,
+							"bus": true,
+							"ferry": false,
+							"express": true,
+							"regional": true
+						},
+						"stationDHID": "de:12054:900230999"
+					},
+					"arrival": null,
+					"plannedArrival": null,
+					"arrivalDelay": null,
+					"arrivalPlatform": null,
+					"arrivalPrognosisType": null,
+					"plannedArrivalPlatform": null,
+					"departure": "2025-11-02T15:03:00+01:00",
+					"plannedDeparture": "2025-11-02T15:02:00+01:00",
+					"departureDelay": 60,
+					"departurePlatform": "5",
+					"departurePrognosisType": null,
+					"plannedDeparturePlatform": "5"
+				},
+				{
+					"stop": {
+						"type": "stop",
+						"id": "900220022",
+						"name": "Stahnsdorf, Schwarzer Weg",
+						"location": {
+							"type": "location",
+							"id": "900220022",
+							"latitude": 52.39334,
+							"longitude": 13.235151
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220022"
+					},
+					"arrival": "2025-11-02T15:28:00+01:00",
+					"plannedArrival": "2025-11-02T15:28:00+01:00",
+					"arrivalDelay": 0,
+					"arrivalPlatform": null,
+					"arrivalPrognosisType": null,
+					"plannedArrivalPlatform": null,
+					"departure": "2025-11-02T15:28:00+01:00",
+					"plannedDeparture": "2025-11-02T15:28:00+01:00",
+					"departureDelay": 0,
+					"departurePlatform": null,
+					"departurePrognosisType": null,
+					"plannedDeparturePlatform": null
+				},
+				{
+					"stop": {
+						"type": "stop",
+						"id": "900220096",
+						"name": "Teltow, Feuerwehr",
+						"location": {
+							"type": "location",
+							"id": "900220096",
+							"latitude": 52.395758,
+							"longitude": 13.240436
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220096"
+					},
+					"arrival": "2025-11-02T15:29:00+01:00",
+					"plannedArrival": "2025-11-02T15:29:00+01:00",
+					"arrivalDelay": 0,
+					"arrivalPlatform": null,
+					"arrivalPrognosisType": null,
+					"plannedArrivalPlatform": null,
+					"departure": "2025-11-02T15:29:00+01:00",
+					"plannedDeparture": "2025-11-02T15:29:00+01:00",
+					"departureDelay": 0,
+					"departurePlatform": null,
+					"departurePrognosisType": null,
+					"plannedDeparturePlatform": null
+				},
+				{
+					"stop": {
+						"type": "stop",
+						"id": "900220001",
+						"name": "Teltow, Bahnhof",
+						"location": {
+							"type": "location",
+							"id": "900220001",
+							"latitude": 52.388881,
+							"longitude": 13.300008
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": true
+						},
+						"stationDHID": "de:12069:900220001"
+					},
+					"arrival": "2025-11-02T15:41:00+01:00",
+					"plannedArrival": "2025-11-02T15:41:00+01:00",
+					"arrivalDelay": 0,
+					"arrivalPlatform": null,
+					"arrivalPrognosisType": null,
+					"plannedArrivalPlatform": null,
+					"departure": null,
+					"plannedDeparture": null,
+					"departureDelay": null,
+					"departurePlatform": null,
+					"departurePrognosisType": null,
+					"plannedDeparturePlatform": null
+				}
+			],
+			"frames": [
+				{
+					"origin": {
+						"type": "stop",
+						"id": "900220022",
+						"name": "Stahnsdorf, Schwarzer Weg",
+						"location": {
+							"type": "location",
+							"id": "900220022",
+							"latitude": 52.39334,
+							"longitude": 13.235151
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220022"
+					},
+					"destination": {
+						"type": "stop",
+						"id": "900220096",
+						"name": "Teltow, Feuerwehr",
+						"location": {
+							"type": "location",
+							"id": "900220096",
+							"latitude": 52.395758,
+							"longitude": 13.240436
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220096"
+					},
+					"t": 0
+				},
+				{
+					"origin": {
+						"type": "stop",
+						"id": "900220022",
+						"name": "Stahnsdorf, Schwarzer Weg",
+						"location": {
+							"type": "location",
+							"id": "900220022",
+							"latitude": 52.39334,
+							"longitude": 13.235151
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220022"
+					},
+					"destination": {
+						"type": "stop",
+						"id": "900220096",
+						"name": "Teltow, Feuerwehr",
+						"location": {
+							"type": "location",
+							"id": "900220096",
+							"latitude": 52.395758,
+							"longitude": 13.240436
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220096"
+					},
+					"t": 10000
+				},
+				{
+					"origin": {
+						"type": "stop",
+						"id": "900220022",
+						"name": "Stahnsdorf, Schwarzer Weg",
+						"location": {
+							"type": "location",
+							"id": "900220022",
+							"latitude": 52.39334,
+							"longitude": 13.235151
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220022"
+					},
+					"destination": {
+						"type": "stop",
+						"id": "900220096",
+						"name": "Teltow, Feuerwehr",
+						"location": {
+							"type": "location",
+							"id": "900220096",
+							"latitude": 52.395758,
+							"longitude": 13.240436
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220096"
+					},
+					"t": 20000
+				},
+				{
+					"origin": {
+						"type": "stop",
+						"id": "900220022",
+						"name": "Stahnsdorf, Schwarzer Weg",
+						"location": {
+							"type": "location",
+							"id": "900220022",
+							"latitude": 52.39334,
+							"longitude": 13.235151
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220022"
+					},
+					"destination": {
+						"type": "stop",
+						"id": "900220096",
+						"name": "Teltow, Feuerwehr",
+						"location": {
+							"type": "location",
+							"id": "900220096",
+							"latitude": 52.395758,
+							"longitude": 13.240436
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220096"
+					},
+					"t": 30000
+				}
+			],
+			"polyline": {
+				"type": "FeatureCollection",
+				"features": [
+					{
+						"type": "Feature",
+						"properties": {},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [
+								13.23515,
+								52.39334
+							]
+						}
+					},
+					{
+						"type": "Feature",
+						"properties": {},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [
+								13.23606,
+								52.39359
+							]
+						}
+					},
+					{
+						"type": "Feature",
+						"properties": {},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [
+								13.23726,
+								52.39402
+							]
+						}
+					},
+					{
+						"type": "Feature",
+						"properties": {},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [
+								13.23832,
+								52.39459
+							]
+						}
+					}
+				]
+			}
+		}
+	],
+	"realtimeDataUpdatedAt": 1762093662
+}

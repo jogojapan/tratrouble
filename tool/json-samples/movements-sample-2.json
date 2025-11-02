@@ -1,0 +1,402 @@
+{
+	"movements": [
+		{
+			"direction": "Stahnsdorf Waldschänke",
+			"tripId": "1|100155|4|86|2112025",
+			"line": {
+				"type": "line",
+				"id": "de-vbb-12069604-bus-626",
+				"fahrtNr": null,
+				"name": "626",
+				"public": true,
+				"productName": "Bus",
+				"mode": "bus",
+				"product": "bus",
+				"operator": {
+					"type": "operator",
+					"id": "regiobus-potsdam-mittelmark-gmbh",
+					"name": "regiobus Potsdam Mittelmark GmbH"
+				}
+			},
+			"location": {
+				"type": "location",
+				"latitude": 52.386949,
+				"longitude": 13.234818
+			},
+			"nextStopovers": [
+				{
+					"stop": {
+						"type": "stop",
+						"id": "900053301",
+						"name": "S Wannsee Bhf (Berlin)",
+						"location": {
+							"type": "location",
+							"id": "900053301",
+							"latitude": 52.421728,
+							"longitude": 13.178932
+						},
+						"products": {
+							"suburban": true,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": true,
+							"regional": true
+						},
+						"stationDHID": "de:11000:900053301"
+					},
+					"arrival": null,
+					"plannedArrival": null,
+					"arrivalDelay": null,
+					"arrivalPlatform": null,
+					"arrivalPrognosisType": null,
+					"plannedArrivalPlatform": null,
+					"departure": "2025-11-02T14:50:00+01:00",
+					"plannedDeparture": "2025-11-02T14:50:00+01:00",
+					"departureDelay": 0,
+					"departurePlatform": null,
+					"departurePrognosisType": null,
+					"plannedDeparturePlatform": null
+				},
+				{
+					"stop": {
+						"type": "stop",
+						"id": "900220032",
+						"name": "Stahnsdorf, Briefzentrum",
+						"location": {
+							"type": "location",
+							"id": "900220032",
+							"latitude": 52.386949,
+							"longitude": 13.234818
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220032"
+					},
+					"arrival": "2025-11-02T15:39:00+01:00",
+					"plannedArrival": "2025-11-02T15:39:00+01:00",
+					"arrivalDelay": 0,
+					"arrivalPlatform": null,
+					"arrivalPrognosisType": null,
+					"plannedArrivalPlatform": null,
+					"departure": "2025-11-02T15:39:00+01:00",
+					"plannedDeparture": "2025-11-02T15:39:00+01:00",
+					"departureDelay": 0,
+					"departurePlatform": null,
+					"departurePrognosisType": null,
+					"plannedDeparturePlatform": null
+				},
+				{
+					"stop": {
+						"type": "stop",
+						"id": "900220024",
+						"name": "Stahnsdorf, Grüner Weg",
+						"location": {
+							"type": "location",
+							"id": "900220024",
+							"latitude": 52.390374,
+							"longitude": 13.226413
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220024"
+					},
+					"arrival": "2025-11-02T15:41:00+01:00",
+					"plannedArrival": "2025-11-02T15:40:00+01:00",
+					"arrivalDelay": 60,
+					"arrivalPlatform": null,
+					"arrivalPrognosisType": null,
+					"plannedArrivalPlatform": null,
+					"departure": "2025-11-02T15:41:00+01:00",
+					"plannedDeparture": "2025-11-02T15:40:00+01:00",
+					"departureDelay": 60,
+					"departurePlatform": null,
+					"departurePrognosisType": null,
+					"plannedDeparturePlatform": null
+				},
+				{
+					"stop": {
+						"type": "stop",
+						"id": "900220019",
+						"name": "Stahnsdorf, Waldschänke",
+						"location": {
+							"type": "location",
+							"id": "900220019",
+							"latitude": 52.393619,
+							"longitude": 13.210439
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220019"
+					},
+					"arrival": "2025-11-02T15:45:00+01:00",
+					"plannedArrival": "2025-11-02T15:45:00+01:00",
+					"arrivalDelay": 0,
+					"arrivalPlatform": "3",
+					"arrivalPrognosisType": null,
+					"plannedArrivalPlatform": "3",
+					"departure": null,
+					"plannedDeparture": null,
+					"departureDelay": null,
+					"departurePlatform": null,
+					"departurePrognosisType": null,
+					"plannedDeparturePlatform": null
+				}
+			],
+			"frames": [
+				{
+					"origin": {
+						"type": "stop",
+						"id": "900220032",
+						"name": "Stahnsdorf, Briefzentrum",
+						"location": {
+							"type": "location",
+							"id": "900220032",
+							"latitude": 52.386949,
+							"longitude": 13.234818
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220032"
+					},
+					"destination": {
+						"type": "stop",
+						"id": "900220024",
+						"name": "Stahnsdorf, Grüner Weg",
+						"location": {
+							"type": "location",
+							"id": "900220024",
+							"latitude": 52.390374,
+							"longitude": 13.226413
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220024"
+					},
+					"t": 0
+				},
+				{
+					"origin": {
+						"type": "stop",
+						"id": "900220032",
+						"name": "Stahnsdorf, Briefzentrum",
+						"location": {
+							"type": "location",
+							"id": "900220032",
+							"latitude": 52.386949,
+							"longitude": 13.234818
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220032"
+					},
+					"destination": {
+						"type": "stop",
+						"id": "900220024",
+						"name": "Stahnsdorf, Grüner Weg",
+						"location": {
+							"type": "location",
+							"id": "900220024",
+							"latitude": 52.390374,
+							"longitude": 13.226413
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220024"
+					},
+					"t": 10000
+				},
+				{
+					"origin": {
+						"type": "stop",
+						"id": "900220032",
+						"name": "Stahnsdorf, Briefzentrum",
+						"location": {
+							"type": "location",
+							"id": "900220032",
+							"latitude": 52.386949,
+							"longitude": 13.234818
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220032"
+					},
+					"destination": {
+						"type": "stop",
+						"id": "900220024",
+						"name": "Stahnsdorf, Grüner Weg",
+						"location": {
+							"type": "location",
+							"id": "900220024",
+							"latitude": 52.390374,
+							"longitude": 13.226413
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220024"
+					},
+					"t": 20000
+				},
+				{
+					"origin": {
+						"type": "stop",
+						"id": "900220032",
+						"name": "Stahnsdorf, Briefzentrum",
+						"location": {
+							"type": "location",
+							"id": "900220032",
+							"latitude": 52.386949,
+							"longitude": 13.234818
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220032"
+					},
+					"destination": {
+						"type": "stop",
+						"id": "900220024",
+						"name": "Stahnsdorf, Grüner Weg",
+						"location": {
+							"type": "location",
+							"id": "900220024",
+							"latitude": 52.390374,
+							"longitude": 13.226413
+						},
+						"products": {
+							"suburban": false,
+							"subway": false,
+							"tram": false,
+							"bus": true,
+							"ferry": false,
+							"express": false,
+							"regional": false
+						},
+						"stationDHID": "de:12069:900220024"
+					},
+					"t": 30000
+				}
+			],
+			"polyline": {
+				"type": "FeatureCollection",
+				"features": [
+					{
+						"type": "Feature",
+						"properties": {},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [
+								13.23482,
+								52.38695
+							]
+						}
+					},
+					{
+						"type": "Feature",
+						"properties": {},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [
+								13.23458,
+								52.38707
+							]
+						}
+					},
+					{
+						"type": "Feature",
+						"properties": {},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [
+								13.23372,
+								52.38744
+							]
+						}
+					},
+					{
+						"type": "Feature",
+						"properties": {},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [
+								13.23284,
+								52.38781
+							]
+						}
+					}
+				]
+			}
+		}
+	],
+	"realtimeDataUpdatedAt": 1762094291
+}
