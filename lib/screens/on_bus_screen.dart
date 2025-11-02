@@ -141,14 +141,26 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
       final productName = line.productName.toLowerCase();
       Icon icon;
       if (productName == 'bus') {
-        icon = Icon(Icons.bus_alert_rounded, color: Colors.black, size: 60);
+        icon = Icon(
+          Icons.directions_bus_rounded,
+          color: Colors.black,
+          size: 60,
+        );
       } else if (productName == 's-bahn' ||
           productName == 're' ||
           productName == 'rb' ||
           productName == 'rb/re') {
-        icon = Icon(Icons.train_rounded, color: Colors.redAccent, size: 60);
+        icon = Icon(
+          Icons.directions_railway_rounded,
+          color: const Color.fromARGB(255, 190, 72, 28),
+          size: 60,
+        );
       } else if (productName == 'tram') {
-        icon = Icon(Icons.tram_rounded, color: Colors.redAccent, size: 60);
+        icon = Icon(
+          Icons.tram_rounded,
+          color: Colors.deepPurpleAccent,
+          size: 60,
+        );
       } else {
         icon = Icon(
           Icons.question_mark_rounded,
