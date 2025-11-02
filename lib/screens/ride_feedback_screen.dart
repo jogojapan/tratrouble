@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
+import 'dart:convert';
 import '../v6_vbb/movement_response.dart';
 import '../generated/l10n.dart';
+import '../config/api_constants.dart';
+import '../providers/auth_provider.dart';
 
 class RideFeedbackScreen extends StatefulWidget {
   final Movement movement;
@@ -43,6 +48,76 @@ class _RideFeedbackScreenState extends State<RideFeedbackScreen> {
   void dispose() {
     _commentsController.dispose();
     super.dispose();
+  }
+
+  Future<void> _submitFeedback() async {
+    final authProvider = context.read<AuthProvider>();
+
+    // Check if user is logged in
+    if (!authProvider.isLoggedIn) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(S.of(context).login)));
+      return;
+    }
+
+    try {
+      final feedbackData = {
+        'movementId': widget.movement.tripId,
+        'token': authProvider.token,
+        'lineName': widget.movement.line.name,
+        'direction': widget.movement.direction,
+        'feedbackTimestamp': DateTime.now().toIso8601String(),
+        'punctuality': _selectedPunctuality,
+        'onboardInfoDisplay': _selectedInfoDisplay,
+        'onboardAnnouncements': _selectedAnnouncements,
+        'capacity': _selectedCapacity,
+        'drivingStyle': _selectedDrivingStyle,
+        'cleanliness': _selectedCleanliness.toList(),
+        'temperature': _selectedTemperature,
+        'passengerBehavior': _selectedPassengerBehavior,
+        'additionalComments': _commentsController.text,
+      };
+
+      final response = await http.post(
+        Uri.parse('${ApiConstants.baseUrl}/api/ride-feedback/'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ${authProvider.token}',
+        },
+        body: json.encode(feedbackData),
+      );
+
+      if (!mounted) return;
+
+      if (response.statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(S.of(context).feedbackSubmittedContent),
+            duration: const Duration(seconds: 2),
+          ),
+        );
+        Navigator.of(context).pop();
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              S.of(context).submitEmailFailed('HTTP ${response.statusCode}'),
+            ),
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(S.of(context).submitEmailFailed(e.toString())),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    }
   }
 
   void _toggleCleanliness(String option) {
@@ -239,17 +314,7 @@ class _RideFeedbackScreenState extends State<RideFeedbackScreen> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  // TODO: Implement feedback submission
-                  // For now, just show a snackbar
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(s.feedbackSubmittedContent),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                  Navigator.of(context).pop();
-                },
+                onPressed: _submitFeedback,
                 child: Text(s.submitFeedback),
               ),
             ),
