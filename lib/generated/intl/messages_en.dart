@@ -30,10 +30,39 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "additionalComments": MessageLookupByLibrary.simpleMessage(
+      "Additional comments (optional)",
+    ),
+    "aggressiveBehavior": MessageLookupByLibrary.simpleMessage(
+      "Aggressive behavior",
+    ),
     "appTitle": MessageLookupByLibrary.simpleMessage("TraTrouble"),
+    "capacity": MessageLookupByLibrary.simpleMessage("Capacity"),
+    "cleanliness": MessageLookupByLibrary.simpleMessage("Cleanliness"),
+    "clearAnnouncements": MessageLookupByLibrary.simpleMessage(
+      "Clear announcements",
+    ),
+    "couldStandComfortably": MessageLookupByLibrary.simpleMessage(
+      "I could stand comfortably",
+    ),
     "deepLinkError": m0,
     "departNearby": MessageLookupByLibrary.simpleMessage("Board a bus nearby"),
     "departures": MessageLookupByLibrary.simpleMessage("Departures"),
+    "displayBroken": MessageLookupByLibrary.simpleMessage("Display broken"),
+    "displayFunctional": MessageLookupByLibrary.simpleMessage(
+      "Display functional",
+    ),
+    "displayNonExisting": MessageLookupByLibrary.simpleMessage(
+      "Display non-existing",
+    ),
+    "drivingStyle": MessageLookupByLibrary.simpleMessage("Driving style"),
+    "drunkPerson": MessageLookupByLibrary.simpleMessage("Drunk person"),
+    "earlyDeparture1to2Min": MessageLookupByLibrary.simpleMessage(
+      "Departed 1-2 min too early",
+    ),
+    "earlyDepartureMoreThan2Min": MessageLookupByLibrary.simpleMessage(
+      "Departed >2 min early",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailAlreadyVerified": MessageLookupByLibrary.simpleMessage(
       "Email already verified.",
@@ -45,17 +74,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Email verified successfully!",
     ),
+    "extremeSmell": MessageLookupByLibrary.simpleMessage("Extreme smell"),
     "feedbackSubmittedContent": MessageLookupByLibrary.simpleMessage(
       "Thank you for your feedback!",
     ),
     "feedbackSubmittedTitle": MessageLookupByLibrary.simpleMessage(
       "Feedback Submitted",
     ),
+    "gotASeat": MessageLookupByLibrary.simpleMessage("I got a seat"),
+    "greasySurfaces": MessageLookupByLibrary.simpleMessage("Greasy surfaces"),
     "iAmOnThisBus": MessageLookupByLibrary.simpleMessage("I am on this bus"),
     "iAmOnThisTrain": MessageLookupByLibrary.simpleMessage(
       "I am on this train",
     ),
     "iAmOnThisTram": MessageLookupByLibrary.simpleMessage("I am on this tram"),
+    "late1to2Min": MessageLookupByLibrary.simpleMessage("1-2 min late"),
+    "lateMoreThan2Min": MessageLookupByLibrary.simpleMessage(">2 min late"),
+    "liquidDirtOrVomit": MessageLookupByLibrary.simpleMessage(
+      "Liquid dirt or vomit",
+    ),
     "locationPermissionDenied": MessageLookupByLibrary.simpleMessage(
       "Location permission denied.",
     ),
@@ -67,19 +104,45 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "lotsOfGarbage": MessageLookupByLibrary.simpleMessage("Lots of garbage"),
     "min": MessageLookupByLibrary.simpleMessage("min"),
     "nearby": MessageLookupByLibrary.simpleMessage("Nearby"),
+    "noAnnouncements": MessageLookupByLibrary.simpleMessage("No announcements"),
+    "noProblems": MessageLookupByLibrary.simpleMessage("No problems"),
     "now": MessageLookupByLibrary.simpleMessage("now"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "onTheBus": MessageLookupByLibrary.simpleMessage("I am on the bus"),
+    "onTime": MessageLookupByLibrary.simpleMessage("On time"),
+    "onboardAnnouncements": MessageLookupByLibrary.simpleMessage(
+      "Onboard announcements",
+    ),
+    "onboardInfoDisplay": MessageLookupByLibrary.simpleMessage(
+      "Onboard info display",
+    ),
+    "overcrowded": MessageLookupByLibrary.simpleMessage("Overcrowded"),
+    "passengerBehavior": MessageLookupByLibrary.simpleMessage(
+      "Passenger behavior",
+    ),
+    "punctuality": MessageLookupByLibrary.simpleMessage("Punctuality"),
+    "rideFeedback": MessageLookupByLibrary.simpleMessage("Ride Feedback"),
+    "roughDriving": MessageLookupByLibrary.simpleMessage("Rough driving"),
+    "safeDriving": MessageLookupByLibrary.simpleMessage("Safe driving"),
     "shareTransportFeedback": MessageLookupByLibrary.simpleMessage(
       "Share Transport Feedback",
     ),
+    "smelly": MessageLookupByLibrary.simpleMessage("Smelly"),
+    "soRoughSomebodyFell": MessageLookupByLibrary.simpleMessage(
+      "So rough that somebody fell",
+    ),
+    "someGarbage": MessageLookupByLibrary.simpleMessage("Some garbage"),
     "submit": MessageLookupByLibrary.simpleMessage("Submit"),
     "submitEmailFailed": m1,
     "submitEmailSuccess": MessageLookupByLibrary.simpleMessage(
       "Registration submitted. Check your email.",
     ),
+    "submitFeedback": MessageLookupByLibrary.simpleMessage("Submit Feedback"),
+    "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
+    "temperatureOk": MessageLookupByLibrary.simpleMessage("OK"),
     "to": MessageLookupByLibrary.simpleMessage("to"),
     "tokenNotReceived": MessageLookupByLibrary.simpleMessage(
       "Token not received from server.",
@@ -87,8 +150,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "tokenStored": MessageLookupByLibrary.simpleMessage(
       "Token stored successfully.",
     ),
+    "tooCold": MessageLookupByLibrary.simpleMessage("Too cold"),
+    "tooWarm": MessageLookupByLibrary.simpleMessage("Too warm"),
     "transportFeedback": MessageLookupByLibrary.simpleMessage(
       "Transport Feedback",
+    ),
+    "unclearAnnouncements": MessageLookupByLibrary.simpleMessage(
+      "Unclear announcements",
     ),
     "verificationError": m2,
     "verificationFailed": m3,

@@ -343,6 +343,346 @@ class S {
       args: [],
     );
   }
+
+  /// `Ride Feedback`
+  String get rideFeedback {
+    return Intl.message(
+      'Ride Feedback',
+      name: 'rideFeedback',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Punctuality`
+  String get punctuality {
+    return Intl.message('Punctuality', name: 'punctuality', desc: '', args: []);
+  }
+
+  /// `On time`
+  String get onTime {
+    return Intl.message('On time', name: 'onTime', desc: '', args: []);
+  }
+
+  /// `1-2 min late`
+  String get late1to2Min {
+    return Intl.message(
+      '1-2 min late',
+      name: 'late1to2Min',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `>2 min late`
+  String get lateMoreThan2Min {
+    return Intl.message(
+      '>2 min late',
+      name: 'lateMoreThan2Min',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Departed 1-2 min too early`
+  String get earlyDeparture1to2Min {
+    return Intl.message(
+      'Departed 1-2 min too early',
+      name: 'earlyDeparture1to2Min',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Departed >2 min early`
+  String get earlyDepartureMoreThan2Min {
+    return Intl.message(
+      'Departed >2 min early',
+      name: 'earlyDepartureMoreThan2Min',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Onboard info display`
+  String get onboardInfoDisplay {
+    return Intl.message(
+      'Onboard info display',
+      name: 'onboardInfoDisplay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Display functional`
+  String get displayFunctional {
+    return Intl.message(
+      'Display functional',
+      name: 'displayFunctional',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Display broken`
+  String get displayBroken {
+    return Intl.message(
+      'Display broken',
+      name: 'displayBroken',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Display non-existing`
+  String get displayNonExisting {
+    return Intl.message(
+      'Display non-existing',
+      name: 'displayNonExisting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Onboard announcements`
+  String get onboardAnnouncements {
+    return Intl.message(
+      'Onboard announcements',
+      name: 'onboardAnnouncements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear announcements`
+  String get clearAnnouncements {
+    return Intl.message(
+      'Clear announcements',
+      name: 'clearAnnouncements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unclear announcements`
+  String get unclearAnnouncements {
+    return Intl.message(
+      'Unclear announcements',
+      name: 'unclearAnnouncements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No announcements`
+  String get noAnnouncements {
+    return Intl.message(
+      'No announcements',
+      name: 'noAnnouncements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Capacity`
+  String get capacity {
+    return Intl.message('Capacity', name: 'capacity', desc: '', args: []);
+  }
+
+  /// `I got a seat`
+  String get gotASeat {
+    return Intl.message('I got a seat', name: 'gotASeat', desc: '', args: []);
+  }
+
+  /// `I could stand comfortably`
+  String get couldStandComfortably {
+    return Intl.message(
+      'I could stand comfortably',
+      name: 'couldStandComfortably',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overcrowded`
+  String get overcrowded {
+    return Intl.message('Overcrowded', name: 'overcrowded', desc: '', args: []);
+  }
+
+  /// `Driving style`
+  String get drivingStyle {
+    return Intl.message(
+      'Driving style',
+      name: 'drivingStyle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Safe driving`
+  String get safeDriving {
+    return Intl.message(
+      'Safe driving',
+      name: 'safeDriving',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rough driving`
+  String get roughDriving {
+    return Intl.message(
+      'Rough driving',
+      name: 'roughDriving',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `So rough that somebody fell`
+  String get soRoughSomebodyFell {
+    return Intl.message(
+      'So rough that somebody fell',
+      name: 'soRoughSomebodyFell',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cleanliness`
+  String get cleanliness {
+    return Intl.message('Cleanliness', name: 'cleanliness', desc: '', args: []);
+  }
+
+  /// `Greasy surfaces`
+  String get greasySurfaces {
+    return Intl.message(
+      'Greasy surfaces',
+      name: 'greasySurfaces',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Some garbage`
+  String get someGarbage {
+    return Intl.message(
+      'Some garbage',
+      name: 'someGarbage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lots of garbage`
+  String get lotsOfGarbage {
+    return Intl.message(
+      'Lots of garbage',
+      name: 'lotsOfGarbage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Liquid dirt or vomit`
+  String get liquidDirtOrVomit {
+    return Intl.message(
+      'Liquid dirt or vomit',
+      name: 'liquidDirtOrVomit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Smelly`
+  String get smelly {
+    return Intl.message('Smelly', name: 'smelly', desc: '', args: []);
+  }
+
+  /// `Extreme smell`
+  String get extremeSmell {
+    return Intl.message(
+      'Extreme smell',
+      name: 'extremeSmell',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No problems`
+  String get noProblems {
+    return Intl.message('No problems', name: 'noProblems', desc: '', args: []);
+  }
+
+  /// `Temperature`
+  String get temperature {
+    return Intl.message('Temperature', name: 'temperature', desc: '', args: []);
+  }
+
+  /// `Too warm`
+  String get tooWarm {
+    return Intl.message('Too warm', name: 'tooWarm', desc: '', args: []);
+  }
+
+  /// `Too cold`
+  String get tooCold {
+    return Intl.message('Too cold', name: 'tooCold', desc: '', args: []);
+  }
+
+  /// `OK`
+  String get temperatureOk {
+    return Intl.message('OK', name: 'temperatureOk', desc: '', args: []);
+  }
+
+  /// `Passenger behavior`
+  String get passengerBehavior {
+    return Intl.message(
+      'Passenger behavior',
+      name: 'passengerBehavior',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aggressive behavior`
+  String get aggressiveBehavior {
+    return Intl.message(
+      'Aggressive behavior',
+      name: 'aggressiveBehavior',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Drunk person`
+  String get drunkPerson {
+    return Intl.message(
+      'Drunk person',
+      name: 'drunkPerson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Additional comments (optional)`
+  String get additionalComments {
+    return Intl.message(
+      'Additional comments (optional)',
+      name: 'additionalComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit Feedback`
+  String get submitFeedback {
+    return Intl.message(
+      'Submit Feedback',
+      name: 'submitFeedback',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -10,6 +10,7 @@ import 'package:geolocator/geolocator.dart';
 import '../generated/l10n.dart';
 import 'package:tratrouble/config/api_constants.dart';
 import 'package:tratrouble/utils/secure_storage.dart';
+import 'ride_feedback_screen.dart';
 
 class OnBusScreen extends StatefulWidget {
   const OnBusScreen({super.key});
@@ -284,8 +285,11 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
   }
 
   Future<void> _onBoardVehicle(Movement movement) async {
-    // TODO: Implement the logic for when user boards a vehicle
-    // This function is left empty as per requirements
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => RideFeedbackScreen(movement: movement),
+      ),
+    );
   }
 
   @override
