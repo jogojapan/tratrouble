@@ -1,6 +1,7 @@
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import 'dart:convert';
+import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import '../v6_vbb/movement_response.dart';
@@ -21,6 +22,11 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
   late MapController controller;
   GeoPoint? _currentLocation;
   String? _errorMessage;
+  Timer? _debounceTimer;
+  static const int _debounceDelayMs = 1000; // 1 second debounce delay
+  GeoPoint? _lastLoadedLocation;
+  static const double _minLocationChangeThreshold = 0.002; // ~200 meters
+  final List<GeoPoint> _currentMarkers = []; // Track current markers
 
   @override
   void initState() {
@@ -32,97 +38,141 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
     _determinePosition();
   }
 
-  @override
-  Future<void> mapIsReady(bool isReady) async {
-    void addMovementMarkers(List<Movement> movements) async {
-      for (final movement in movements) {
-        final location = movement.location;
-        final line = movement.line;
-        final productName = line.productName.toLowerCase();
-        Color color;
-        if (productName == 'bus') {
-          color = Colors.yellow;
-        } else if (productName == 's-bahn' ||
-            productName == 're' ||
-            productName == 'rb' ||
-            productName == 'rb/re') {
-          color = Colors.blue;
-        } else if (productName == 'tram') {
-          color = Colors.red;
-        } else {
-          color = Colors.grey;
-        }
+  void _onMapRegionChanged(GeoPoint newCenter) {
+    // Cancel previous debounce timer
+    _debounceTimer?.cancel();
 
-        GeoPoint markerLocation = GeoPoint(
-          latitude: location.latitude,
-          longitude: location.longitude,
-        );
+    // Check if location has changed significantly
+    if (_lastLoadedLocation != null) {
+      final latDiff = (newCenter.latitude - _lastLoadedLocation!.latitude)
+          .abs();
+      final lonDiff = (newCenter.longitude - _lastLoadedLocation!.longitude)
+          .abs();
 
-        MarkerIcon markerIcon = MarkerIcon(
-          icon: Icon(Icons.circle, color: color, size: 16),
-        );
-
-        await controller.addMarker(markerLocation, markerIcon: markerIcon);
+      if (latDiff < _minLocationChangeThreshold &&
+          lonDiff < _minLocationChangeThreshold) {
+        return; // Location change is too small, ignore
       }
     }
 
-    Future<void> loadMovementsAroundLocation(GeoPoint center) async {
-      // Compute bounding box roughly half a square kilometer (~0.5km x 0.5km)
-      // Approximate 0.005 degrees latitude and longitude ~ 0.5 km
-      final double latDelta = 0.005;
-      final double lonDelta = 0.005;
-      final double north = center.latitude + latDelta;
-      final double south = center.latitude - latDelta;
-      final double east = center.longitude + lonDelta;
-      final double west = center.longitude - lonDelta;
+    // Set debounce timer to load movements after delay
+    _debounceTimer = Timer(Duration(milliseconds: _debounceDelayMs), () {
+      _loadMovementsAroundLocation(newCenter);
+    });
+  }
 
-      final int results = 10;
-      final String url =
-          'https://v6.vbb.transport.rest/radar?north=$north&west=$west&south=$south&east=$east&results=$results';
+  /// Called when the map region changes (user pans/drags the map)
+  @override
+  void onRegionChanged(Region region) {
+    super.onRegionChanged(region);
+    _onMapRegionChanged(region.center);
+  }
 
+  Future<void> _clearAllMarkers() async {
+    for (final marker in _currentMarkers) {
       try {
-        final response = Uri.parse(url).resolveUri(Uri());
-        final httpResponse = await http.get(response);
-        if (httpResponse.statusCode == 200) {
-          final jsonData = json.decode(httpResponse.body);
-          try {
-            final movementResponse = MovementResponse.fromJson(jsonData);
-            addMovementMarkers(movementResponse.movements);
-          } catch (e) {
-            if (!mounted) return;
-            final authProvider = context.read<AuthProvider>();
-            if (authProvider.isLoggedIn) {
-              final token = await SecureStorage.getToken();
-              await http.post(
-                Uri.parse(ApiConstants.badJsonUrl),
-                headers: {'Content-Type': 'application/json'},
-                body: json.encode({
-                  'token': token,
-                  'url': url,
-                  'data': jsonData,
-                }),
-              );
-            }
-            //setState(() {
-            //  _errorMessage = 'Error loading movements: $e';
-            //});
+        await controller.removeMarker(marker);
+      } catch (e) {
+        // Silently ignore errors when removing individual markers
+      }
+    }
+    _currentMarkers.clear();
+  }
+
+  Future<void> _loadMovementsAroundLocation(GeoPoint center) async {
+    // Compute bounding box roughly half a square kilometer (~0.5km x 0.5km)
+    // Approximate 0.005 degrees latitude and longitude ~ 0.5 km
+    final double latDelta = 0.005;
+    final double lonDelta = 0.005;
+    final double north = center.latitude + latDelta;
+    final double south = center.latitude - latDelta;
+    final double east = center.longitude + lonDelta;
+    final double west = center.longitude - lonDelta;
+
+    final int results = 10;
+    final String url =
+        'https://v6.vbb.transport.rest/radar?north=$north&west=$west&south=$south&east=$east&results=$results';
+
+    try {
+      final response = Uri.parse(url).resolveUri(Uri());
+      final httpResponse = await http.get(response);
+      if (httpResponse.statusCode == 200) {
+        final jsonData = json.decode(httpResponse.body);
+        try {
+          final movementResponse = MovementResponse.fromJson(jsonData);
+          // Clear old markers before adding new ones
+          await _clearAllMarkers();
+          await _addMovementMarkers(movementResponse.movements);
+          // Update last loaded location
+          _lastLoadedLocation = center;
+        } catch (e) {
+          if (!mounted) return;
+          final authProvider = context.read<AuthProvider>();
+          if (authProvider.isLoggedIn) {
+            final token = await SecureStorage.getToken();
+            await http.post(
+              Uri.parse(ApiConstants.badJsonUrl),
+              headers: {'Content-Type': 'application/json'},
+              body: json.encode({'token': token, 'url': url, 'data': jsonData}),
+            );
           }
-        } else {
+        }
+      } else {
+        if (mounted) {
           setState(() {
             _errorMessage =
                 'Failed to load movements: HTTP ${httpResponse.statusCode}';
           });
         }
-      } catch (e) {
+      }
+    } catch (e) {
+      if (mounted) {
         setState(() {
           _errorMessage = 'Error loading movements: $e';
         });
       }
     }
+  }
 
+  Future<void> _addMovementMarkers(List<Movement> movements) async {
+    for (final movement in movements) {
+      final location = movement.location;
+      final line = movement.line;
+      final productName = line.productName.toLowerCase();
+      Icon icon;
+      if (productName == 'bus') {
+        icon = Icon(Icons.bus_alert_rounded, color: Colors.black, size: 60);
+      } else if (productName == 's-bahn' ||
+          productName == 're' ||
+          productName == 'rb' ||
+          productName == 'rb/re') {
+        icon = Icon(Icons.train_rounded, color: Colors.redAccent, size: 60);
+      } else if (productName == 'tram') {
+        icon = Icon(Icons.tram_rounded, color: Colors.redAccent, size: 60);
+      } else {
+        icon = Icon(
+          Icons.question_mark_rounded,
+          color: Colors.black38,
+          size: 60,
+        );
+      }
+
+      GeoPoint markerLocation = GeoPoint(
+        latitude: location.latitude,
+        longitude: location.longitude,
+      );
+
+      MarkerIcon markerIcon = MarkerIcon(icon: icon);
+      await controller.addMarker(markerLocation, markerIcon: markerIcon);
+      _currentMarkers.add(markerLocation);
+    }
+  }
+
+  @override
+  Future<void> mapIsReady(bool isReady) async {
     if (isReady && _currentLocation != null) {
       await controller.moveTo(_currentLocation!);
-      await loadMovementsAroundLocation(_currentLocation!);
+      await _loadMovementsAroundLocation(_currentLocation!);
     }
   }
 
@@ -172,6 +222,7 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
 
   @override
   void dispose() {
+    _debounceTimer?.cancel();
     controller.dispose();
     super.dispose();
   }
