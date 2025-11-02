@@ -313,6 +313,36 @@ class S {
       args: [],
     );
   }
+
+  /// `I am on this bus`
+  String get iAmOnThisBus {
+    return Intl.message(
+      'I am on this bus',
+      name: 'iAmOnThisBus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I am on this train`
+  String get iAmOnThisTrain {
+    return Intl.message(
+      'I am on this train',
+      name: 'iAmOnThisTrain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I am on this tram`
+  String get iAmOnThisTram {
+    return Intl.message(
+      'I am on this tram',
+      name: 'iAmOnThisTram',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

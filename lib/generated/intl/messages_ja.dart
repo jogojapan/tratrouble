@@ -49,6 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "feedbackSubmittedTitle": MessageLookupByLibrary.simpleMessage(
       "フィードバックが送信されました",
     ),
+    "iAmOnThisBus": MessageLookupByLibrary.simpleMessage("このバスに乗っています"),
+    "iAmOnThisTrain": MessageLookupByLibrary.simpleMessage("この電車に乗っています"),
+    "iAmOnThisTram": MessageLookupByLibrary.simpleMessage("この路面電車に乗っています"),
     "locationPermissionDenied": MessageLookupByLibrary.simpleMessage(
       "位置情報の許可が拒否されました。",
     ),

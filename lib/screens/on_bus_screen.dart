@@ -27,6 +27,9 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
   GeoPoint? _lastLoadedLocation;
   static const double _minLocationChangeThreshold = 0.002; // ~200 meters
   final List<GeoPoint> _currentMarkers = []; // Track current markers
+  final Map<String, Movement> _markerToMovement =
+      {}; // Map markers to movements
+  Movement? _selectedMovement; // Currently selected movement for popup
 
   @override
   void initState() {
@@ -77,6 +80,10 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
       }
     }
     _currentMarkers.clear();
+    _markerToMovement.clear();
+    setState(() {
+      _selectedMovement = null;
+    });
   }
 
   Future<void> _loadMovementsAroundLocation(GeoPoint center) async {
@@ -177,6 +184,11 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
       MarkerIcon markerIcon = MarkerIcon(icon: icon);
       await controller.addMarker(markerLocation, markerIcon: markerIcon);
       _currentMarkers.add(markerLocation);
+
+      // Store the movement data associated with this marker
+      final markerKey =
+          '${markerLocation.latitude},${markerLocation.longitude}';
+      _markerToMovement[markerKey] = movement;
     }
   }
 
@@ -232,6 +244,27 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
     }
   }
 
+  void _onMarkerTapped(GeoPoint markerLocation) {
+    final markerKey = '${markerLocation.latitude},${markerLocation.longitude}';
+    final movement = _markerToMovement[markerKey];
+    if (movement != null) {
+      setState(() {
+        _selectedMovement = movement;
+      });
+    }
+  }
+
+  void _dismissPopup() {
+    setState(() {
+      _selectedMovement = null;
+    });
+  }
+
+  Future<void> _onBoardVehicle(Movement movement) async {
+    // TODO: Implement the logic for when user boards a vehicle
+    // This function is left empty as per requirements
+  }
+
   @override
   void dispose() {
     _debounceTimer?.cancel();
@@ -251,33 +284,123 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
       ),
       body: _errorMessage != null
           ? Center(child: Text(_errorMessage!))
-          : OSMFlutter(
-              controller: controller,
-              osmOption: OSMOption(
-                userTrackingOption: const UserTrackingOption(
-                  enableTracking: false,
-                  unFollowUser: false,
-                ),
-                zoomOption: const ZoomOption(
-                  initZoom: 16,
-                  minZoomLevel: 8,
-                  maxZoomLevel: 18,
-                  stepZoom: 1.0,
-                ),
-                userLocationMarker: UserLocationMaker(
-                  personMarker: const MarkerIcon(
-                    icon: Icon(Icons.location_pin, color: Colors.red, size: 48),
+          : Stack(
+              children: [
+                OSMFlutter(
+                  controller: controller,
+                  osmOption: OSMOption(
+                    userTrackingOption: const UserTrackingOption(
+                      enableTracking: false,
+                      unFollowUser: false,
+                    ),
+                    zoomOption: const ZoomOption(
+                      initZoom: 16,
+                      minZoomLevel: 8,
+                      maxZoomLevel: 18,
+                      stepZoom: 1.0,
+                    ),
+                    userLocationMarker: UserLocationMaker(
+                      personMarker: const MarkerIcon(
+                        icon: Icon(
+                          Icons.location_pin,
+                          color: Colors.red,
+                          size: 48,
+                        ),
+                      ),
+                      directionArrowMarker: const MarkerIcon(
+                        icon: Icon(Icons.navigation, size: 48),
+                      ),
+                    ),
+                    roadConfiguration: const RoadOption(
+                      roadColor: Colors.blue,
+                      roadWidth: 10,
+                    ),
                   ),
-                  directionArrowMarker: const MarkerIcon(
-                    icon: Icon(Icons.navigation, size: 48),
+                  onGeoPointClicked: (GeoPoint geoPoint) {
+                    _onMarkerTapped(geoPoint);
+                  },
+                ),
+                // Dismiss popup when tapping outside of it
+                if (_selectedMovement != null)
+                  GestureDetector(
+                    onTap: _dismissPopup,
+                    child: Container(color: Colors.transparent),
                   ),
-                ),
-                roadConfiguration: const RoadOption(
-                  roadColor: Colors.blue,
-                  roadWidth: 10,
-                ),
+                // Popup showing vehicle information
+                if (_selectedMovement != null)
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        // Prevent dismissing when tapping inside the popup
+                      },
+                      child: _buildVehicleInfoPopup(_selectedMovement!),
+                    ),
+                  ),
+              ],
+            ),
+    );
+  }
+
+  Widget _buildVehicleInfoPopup(Movement movement) {
+    final line = movement.line;
+    final productName = line.productName.toLowerCase();
+
+    // Determine the button label based on vehicle type
+    String buttonLabel;
+    if (productName == 'bus') {
+      buttonLabel = S.of(context).iAmOnThisBus;
+    } else if (productName == 's-bahn' ||
+        productName == 're' ||
+        productName == 'rb' ||
+        productName == 'rb/re') {
+      buttonLabel = S.of(context).iAmOnThisTrain;
+    } else if (productName == 'tram') {
+      buttonLabel = S.of(context).iAmOnThisTram;
+    } else {
+      buttonLabel = 'I am on this vehicle';
+    }
+
+    return Card(
+      elevation: 8,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Close button
+            Align(
+              alignment: Alignment.topRight,
+              child: GestureDetector(
+                onTap: _dismissPopup,
+                child: const Icon(Icons.close, size: 24),
               ),
             ),
+            const SizedBox(height: 8),
+            // Line name
+            Text(
+              line.name,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            // Direction
+            Text(
+              movement.direction,
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            // Button
+            ElevatedButton(
+              onPressed: () {
+                _onBoardVehicle(movement);
+                _dismissPopup();
+              },
+              child: Text(buttonLabel),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

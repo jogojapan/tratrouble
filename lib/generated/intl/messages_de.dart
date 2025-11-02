@@ -53,6 +53,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "feedbackSubmittedTitle": MessageLookupByLibrary.simpleMessage(
       "Feedback gesendet",
     ),
+    "iAmOnThisBus": MessageLookupByLibrary.simpleMessage(
+      "Ich bin in diesem Bus",
+    ),
+    "iAmOnThisTrain": MessageLookupByLibrary.simpleMessage(
+      "Ich bin in diesem Zug",
+    ),
+    "iAmOnThisTram": MessageLookupByLibrary.simpleMessage(
+      "Ich bin in dieser Straßenbahn",
+    ),
     "locationPermissionDenied": MessageLookupByLibrary.simpleMessage(
       "Ortungsberechtigung verweigert.",
     ),

@@ -63,5 +63,8 @@
   },
   "emailAlreadyVerified": "メールはすでに確認されています。",
   "verificationLinkExpired": "確認リンクの有効期限が切れています。新しいリンクをリクエストしてください。",
-  "tokenStored": "トークンが正常に保存されました。"
+  "tokenStored": "トークンが正常に保存されました。",
+  "iAmOnThisBus": "このバスに乗っています",
+  "iAmOnThisTrain": "この電車に乗っています",
+  "iAmOnThisTram": "この路面電車に乗っています"
 }

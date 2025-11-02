@@ -63,5 +63,8 @@
   },
   "emailAlreadyVerified": "E-mail déjà vérifié.",
   "verificationLinkExpired": "Le lien de vérification a expiré. Veuillez en demander un nouveau.",
-  "tokenStored": "Jeton stocké avec succès."
+  "tokenStored": "Jeton stocké avec succès.",
+  "iAmOnThisBus": "Je suis dans ce bus",
+  "iAmOnThisTrain": "Je suis dans ce train",
+  "iAmOnThisTram": "Je suis dans ce tramway"
 }

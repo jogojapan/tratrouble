@@ -63,5 +63,8 @@
   },
   "emailAlreadyVerified": "E-Mail bereits verifiziert.",
   "verificationLinkExpired": "Verifizierungslink ist abgelaufen. Bitte fordern Sie einen neuen an.",
-  "tokenStored": "Token erfolgreich gespeichert."
+  "tokenStored": "Token erfolgreich gespeichert.",
+  "iAmOnThisBus": "Ich bin in diesem Bus",
+  "iAmOnThisTrain": "Ich bin in diesem Zug",
+  "iAmOnThisTram": "Ich bin in dieser Straßenbahn"
 }
