@@ -23,6 +23,9 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
   GeoPoint? _currentLocation;
   String? _errorMessage;
   Timer? _debounceTimer;
+  Timer? _periodicTimer;
+  GeoPoint? _lastMapCenter;
+  bool _popupVisible = false;
   static const int _debounceDelayMs = 1000; // 1 second debounce delay
   GeoPoint? _lastLoadedLocation;
   static const double _minLocationChangeThreshold = 0.002; // ~200 meters
@@ -39,9 +42,17 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
     );
     controller.addObserver(this);
     _determinePosition();
+
+    // Start periodic timer to reload movements every 3 seconds
+    _periodicTimer = Timer.periodic(const Duration(seconds: 3), (timer) async {
+      if (mounted && _lastMapCenter != null && !_popupVisible) {
+        await _loadMovementsAroundLocation(_lastMapCenter!);
+      }
+    });
   }
 
   void _onMapRegionChanged(GeoPoint newCenter) {
+    _lastMapCenter = newCenter;
     // Cancel previous debounce timer
     _debounceTimer?.cancel();
 
@@ -250,6 +261,7 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
     if (movement != null) {
       setState(() {
         _selectedMovement = movement;
+        _popupVisible = true;
       });
     }
   }
@@ -257,6 +269,7 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
   void _dismissPopup() {
     setState(() {
       _selectedMovement = null;
+      _popupVisible = false;
     });
   }
 
@@ -268,6 +281,7 @@ class _OnBusScreenState extends State<OnBusScreen> with OSMMixinObserver {
   @override
   void dispose() {
     _debounceTimer?.cancel();
+    _periodicTimer?.cancel();
     controller.dispose();
     super.dispose();
   }
